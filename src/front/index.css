@@ -4,27 +4,31 @@
 :root{
     --primary-color: rgb(216, 203, 232);
     --secondary-color: rgb(155, 108, 220);
+    --card-primary-color: #d7d3e2;
 }
 body{
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: rgb(219, 210, 234);
+
     
 }
 
 .bg{
-    position: fixed;
+    /* position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-
+    min-width: 100vw;
+    min-height: 100vh;
     background-color: rgb(219, 210, 234);
-    
+     */
 }
 
 .navbar-custom{
-    background-color: rgb(216, 203, 232);
+    background-color: var(--primary-color);
     color: white;
     padding: 10px;
 }
@@ -49,7 +53,7 @@ body{
     margin-top: 2rem;
 }
 .btn{
-    background-color: rgb(155, 108, 220);
+    background-color: var(--secondary-color);
     color: rgb(9, 9, 9);
     border: none;
     padding: 12px 90px;
@@ -67,6 +71,7 @@ body{
 .dropdown-item{
     color: var(--secondary-color);
     font-family: 'Inter', sans-serif;
+    text-decoration: none;
 }
 
 .title{
@@ -83,3 +88,27 @@ body{
 
  } 
 
+.card{
+    background-color: var(--card-primary-color);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(255, 252, 252, 0.292);
+    margin: 20px;
+    /* border-color: var(--secondary-color); */
+}
+.movie-title{
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    font-family: 'Inter', sans-serif;
+}
+.movie-text{
+    font-size: 16px;
+    color: black;
+    font-family: 'Inter', sans-serif;
+}
+
+/* .spinner-grow{
+    top: 20%;
+    background-color: var(--card-primary-color) !important;
+} */
