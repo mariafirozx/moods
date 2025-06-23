@@ -28,7 +28,7 @@ body{
 }
 
 .navbar-custom{
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
     color: white;
     padding: 10px;
 }
@@ -106,6 +106,29 @@ body{
     font-size: 16px;
     color: black;
     font-family: 'Inter', sans-serif;
+}
+.form{
+    width: 100%;
+    max-width: 400px;
+}
+.form-control{
+    width:  100%;
+    padding: 10px;
+    border-radius: 19px;
+    border: 1px solid var(--secondary-color);
+    color: black;
+    background-color: rgb(235, 233, 233);
+    font-family: 'Onest', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
+    font-size: 16px;
+}
+
+.form-control:focus{
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 5px rgba(155, 108, 220, 0.5);
+}
+.mr-2{
+    margin-right: 5rem;
 }
 
 /* .spinner-grow{

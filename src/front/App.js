@@ -3,6 +3,8 @@ import Navbar from './Navbar';
 import TextContainer from './TextContainer';
 import MovieList from './MovieList';
 
+import TextInput from './TextInput';
+
 export default function App() {
     const isVisible = false;
     return (
@@ -18,7 +20,8 @@ export default function App() {
                             <p className="title lead text-center">Hey stranger!</p>
                             <p className="bottomText h5 mt-10 text-center">What are you in mood of?</p>
 
-                            <TextContainer />
+                            <TextInput />
+                            {/* <TextContainer /> */}
 
                         </div>
                     </div>
