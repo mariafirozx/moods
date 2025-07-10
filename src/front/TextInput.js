@@ -2,12 +2,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useRef } from 'react';
 import Response from '../back/Response';
+import Genre from '../back/Genre';
 
 export default function TextInput(){
 
     const [inputMood, setinputMood] = useState('');
     const [prediction, setPrediction] = useState();
     const textInputRef = useRef(null);
+
 
     const handleSubmit = async (e)  => {
         e.preventDefault();
@@ -50,6 +52,7 @@ export default function TextInput(){
        
     }
 
+    
     return(
         <>
 
@@ -60,20 +63,33 @@ export default function TextInput(){
             >
 
             </input>
+
     
         </form>
+
 
         <div className="mt-3">
             {prediction && (
                 <div className='movie-list'>
                     <p>{prediction}</p>
+                    <Genre mood={prediction}/>
+                    
+                    
+                   
+
                 </div>
             )}
 
+        
         </div>
+
+       
     </div>
         
         
         </>
+
+     
     )
+
 }

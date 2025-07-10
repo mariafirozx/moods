@@ -5,8 +5,9 @@ import { Dropdown } from 'react-bootstrap';
 import {options} from './BASE.js';
 
 import Movie from './Movie.js';
+import Map from './Map.js';
 
-export default function Genre({asDropdownItems, onGenreSelect}){
+export default function Genre({mood}){
 
     const [genres, setGenres] = useState([]);
     const { genreId } = useParams(); // Assuming genreId is used to filter or fetch specific genres
@@ -16,32 +17,72 @@ export default function Genre({asDropdownItems, onGenreSelect}){
         .then(res => res.json())
         .then(data => {setGenres(data.genres || [])})
         .catch(err => console.error('Error fetching genres:', err));
-    },[genreId]) //
+    },[genreId]) 
 
-    if (asDropdownItems){
-      
+    const mapID = Map(mood);
 
-        return(
-            <>
-                    {genres.map((genre)=> (
-                       
-                        <Dropdown.Item 
-                        eventKey={genre.id} 
-                        key={genre.id}
-                        onClick={() => onGenreSelect(genre.id)}
-                        
-                        >
+    const filterGenre = genres.filter(genre => mapID.includes(genre.id));
 
 
-                            {genre.name}
-                        </Dropdown.Item>
+    return (
+        <>
+        
+        {filterGenre.length > 0 ? (
+            filterGenre.map(genre => (
+                <div key={genre.id}> {genre.name}</div>
+            ))
+        ): (
+            <div>no genre found for this mood</div>
+        )
+        }
+        
+        
+        </>
+    )
+
+    // const genreID = genres.map((genre) => (
+    //     console.log(genre.id)
+    // ))
+    // // const genreID = genres.map((genre)=>(
+
+    // //     //display genre on mood
 
 
-                    ))}
+
+        
+    // // ))
+
+    // return genreID;
+    
+    // if(onGenreSelected){
+    //     return(
+    //         <>
+    //                 {genres.map((genre) => (
+    //                     <div key={genre.id}>
+                            
+                          
+    //                     </div>
+    //                 ))}
 
                     
 
-            </>
-        )
-    }
+                    
+                       
+                        
+    //                     {/* // eventKey={genre.id} 
+    //                     // key={genre.id}
+    //                     // onClick={() => onGenreSelect(genre.id)}
+                        
+                        
+
+
+    //                         // {genre.name} */}
+                        
+
+
+                
+    //         </>
+    //     )
+    // }
+    
 }
