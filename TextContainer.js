@@ -1,7 +1,7 @@
 import React from "react"
 import { Dropdown } from "react-bootstrap";
-import Genre from "../back/Genre.js";
-import Movie from "../back/Movie.js";
+import Genre from "./src/back/Genre.js";
+import Movie from "./src/back/Movie.js";
 
 
 // This is a placeholder component for TextContainer -- takes input from the user

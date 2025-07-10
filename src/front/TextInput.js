@@ -1,42 +1,46 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useRef } from 'react';
+import Response from '../back/Response';
 
 export default function TextInput(){
 
     const [inputMood, setinputMood] = useState('');
-    const [result, setResult] = useState();
+    const [prediction, setPrediction] = useState();
     const textInputRef = useRef(null);
 
     const handleSubmit = async (e)  => {
         e.preventDefault();
-        setResult(null);
-        try{
+        setPrediction(null);
+        Response(setPrediction, setinputMood, inputMood);
+        // try{
 
-            const response  = await fetch('http://localhost:8000/api/process_input/',{
-                method: 'POST',
-                headers:{
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({text: inputMood})
-            });
+        //     const response  = await fetch('http://localhost:8000/api/process_input/',{
+        //         method: 'POST',
+        //         headers:{
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify({text: inputMood})
+        //     });
 
-            if (!response.ok) {
+        //     if (!response.ok) {
                 
 
-            }
-            const data = await response.json();
+        //     }
+        //     const data = await response.json();
             
-            setResult(data.result);
-            if(!data.result){
-                setResult('No result found');
-            }
-            console.log('mood result:', data.result);
-            setinputMood('');
+        //     setPrediction(data.prediction);
+        //     if(!data.prediction){
+        //         setPrediction('No result found');
+        //     }
+        //     console.log('mood result:', data.prediction);
+        //     setinputMood('');
 
-        }catch(err){
+        // }catch(err){
 
-        }
+        // }
+
+
 
     }
 
@@ -60,9 +64,9 @@ export default function TextInput(){
         </form>
 
         <div className="mt-3">
-            {result && (
+            {prediction && (
                 <div className='movie-list'>
-                    <p>{result}</p>
+                    <p>{prediction}</p>
                 </div>
             )}
 
