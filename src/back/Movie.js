@@ -7,20 +7,34 @@ import MovieList from '../front/MovieList.js';
 
 export default function Movie({genreId}) {
     const [movie, setMovie] = useState([]);
+    const [loading, setLoading] = useState(false);
     // const { id } = useParams();
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreId}`, options)
+        if(!genreId) return;
+        setLoading(true);
+
+        fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${genreId.join(',')}`, options)
         .then(res => res.json())
-        .then(data => setMovie(data.results || []))
+        .then(data => {
+            
+            setMovie(data.results || []);
+            setLoading(false);
+        })
         .catch(err => console.error('Error fetching movie:', err));
 
     },[genreId]);
 
+    if(loading){
+        return(
+             <div className="spinner-grow" role="status">
+                <span className="sr-only"> hold on a min..</span>
+            </div>
+
+        )
+    }
     if (!movie || Object.keys(movie).length === 0) {
-        return <div className="spinner-grow text-dark m-5" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </div>
+        return <div>No movies found for your mood</div>
 
     }
 
@@ -35,7 +49,7 @@ export default function Movie({genreId}) {
 
     return(
         <>
-        <div>
+        <div className='movie-list-row'>
             {output}
         </div>
 

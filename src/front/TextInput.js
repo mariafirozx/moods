@@ -4,6 +4,8 @@ import { useRef } from 'react';
 import Response from '../back/Response';
 import Genre from '../back/Genre';
 
+import MovieGenreView from './MovieGenreView';
+
 export default function TextInput(){
 
     const [inputMood, setinputMood] = useState('');
@@ -69,15 +71,20 @@ export default function TextInput(){
 
 
         <div className="mt-3">
+            
+           
             {prediction && (
-                <div className='movie-list'>
-                    <p>{prediction}</p>
-                    <Genre mood={prediction}/>
+                <div>
+                      
+                    {/* <p>{prediction}</p> */}
+                    {/* <Genre mood={prediction} onGenreId={setGenreId}/> */}
+                <MovieGenreView mood={prediction}></MovieGenreView>
+                
                     
-                    
+                </div>
                    
 
-                </div>
+                
             )}
 
         

@@ -7,7 +7,7 @@ import {options} from './BASE.js';
 import Movie from './Movie.js';
 import Map from './Map.js';
 
-export default function Genre({mood}){
+export default function Genre({mood, onGenreId}){
 
     const [genres, setGenres] = useState([]);
     const { genreId } = useParams(); // Assuming genreId is used to filter or fetch specific genres
@@ -22,23 +22,34 @@ export default function Genre({mood}){
     const mapID = Map(mood);
 
     const filterGenre = genres.filter(genre => mapID.includes(genre.id));
+    const id = filterGenre.map(genre => genre.id);
 
+    useEffect (() => {
 
-    return (
-        <>
-        
-        {filterGenre.length > 0 ? (
-            filterGenre.map(genre => (
-                <div key={genre.id}> {genre.name}</div>
-            ))
-        ): (
-            <div>no genre found for this mood</div>
-        )
+        if(onGenreId){
+            onGenreId(id)
+
         }
+        // if(filterGenre.length > 0 && onGenreId){
+        //     onGenreId(filterGenre.map(genre => genre.id))
+        // } 
+    }, [JSON.stringify(id), onGenreId])
+    // return (
+    //     <>
+        
+    //     {filterGenre.length > 0 ? (
+    //         filterGenre.map(genre => (
+    //             // <div key={genre.id}> {genre.name}</div>
+    //             <Movie key={genre.id} genreId={genre.id}></Movie>
+    //         ))
+    //     ): (
+    //         <div>no genre found for this mood</div>
+    //     )
+    //     }
         
         
-        </>
-    )
+    //     </>
+    // )
 
     // const genreID = genres.map((genre) => (
     //     console.log(genre.id)
