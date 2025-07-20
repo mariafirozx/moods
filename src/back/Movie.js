@@ -4,39 +4,71 @@ import { useState, useEffect } from 'react';
 import { options } from './BASE.js';
 
 import MovieList from '../front/MovieList.js';
+import Genre from './Genre.js';
 
-export default function Movie({genreId}) {
+export default function Movie({mood}) {
     const [movie, setMovie] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [genre, setGenre] = useState(null)
+    const [isloading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
     // const { id } = useParams();
 
     useEffect(() => {
-        if(!genreId) return;
-        setLoading(true);
+        if(!genre || genre.length === 0) return;
+        
+         //initiliaze empty movie arr
+        const movieMap = new Map(); // to remove dups
+        const fetchMovies = async () => {
+            setIsLoading(true);
+            setError(null);
 
-        fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${genreId.join(',')}`, options)
-        .then(res => res.json())
-        .then(data => {
+            try{
+                for( const id of genre){
+
+                    const res = await fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${id}`, options)
+
+                    if(!res.ok) throw new Error('failed to fetch');
+                    const data = await res.json();
+
+                    (data.results || [] ).forEach(movie => {
+                        if(!movieMap.has(movie.id)){ //if the map does not contain the movie id; set the movie n id in map;; hence remove  dups
+                            movieMap.set(movie.id, movie)
+                        }
+                        
+                    });
+
+                //    allMovies.push(...(data.results || []));
+                }
+
+                setMovie(Array.from(movieMap.values())); //convert map vals to array
+                
+
+                // setLoading(false);
             
-            setMovie(data.results || []);
-            setLoading(false);
-        })
-        .catch(err => console.error('Error fetching movie:', err));
+            }catch(err){
+                console.error('err', err);
+                setError('failed to load movies');
 
-    },[genreId]);
+            }finally{
+                setIsLoading(false);
+            }
+        }
 
-    if(loading){
-        return(
-             <div className="spinner-grow" role="status">
-                <span className="sr-only"> hold on a min..</span>
-            </div>
+        fetchMovies();
+    },[genre]);
 
-        )
-    }
-    if (!movie || Object.keys(movie).length === 0) {
-        return <div>No movies found for your mood</div>
+    // if(isloading){
+    //     return(
+    //          <div className="spinner-grow" role="status">
+    //             <span className="sr-only"> hold on a min..</span>
+    //         </div>
 
-    }
+    //     )
+    // }
+    // if (!movie || Object.keys(movie).length === 0) {
+    //     return <div>No movies found for your mood</div>
+
+    // }
 
     const output = movie.map((m) => (
         <MovieList 
@@ -49,9 +81,31 @@ export default function Movie({genreId}) {
 
     return(
         <>
-        <div className='movie-list-row'>
-            {output}
+
+        <div>
+            <Genre mood={mood} onGenreId={setGenre}></Genre>
         </div>
+
+        {isloading && (
+             <div className='spinner-container'>
+                <div className="spinner-grow" role="status"></div>
+                    <span className="sr-only"> fetching your mood... </span>
+
+            </div>
+
+        )}
+
+        {!isloading && movie.length === 0 && (
+            <div>No movies found for your mood</div>
+        )}
+
+        {!isloading && movie.length > 0 && (
+
+            <div className='movie-list-row'>
+                {output}
+            </div>
+
+        )}
 
 
         </>

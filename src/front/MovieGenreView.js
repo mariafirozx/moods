@@ -17,6 +17,7 @@ export default function MovieGenreView({mood}){
                 <span class="sr-only"> </span>
         </div> */}
 
+        
         {genreId && genreId.map(id => (
             <Movie key={id} genreId={[id]}></Movie>
 

@@ -5,19 +5,23 @@ import Response from '../back/Response';
 import Genre from '../back/Genre';
 
 import MovieGenreView from './MovieGenreView';
+import Movie from '../back/Movie';
 
 export default function TextInput(){
 
     const [inputMood, setinputMood] = useState('');
     const [prediction, setPrediction] = useState();
+    
+    
     const textInputRef = useRef(null);
 
 
     const handleSubmit = async (e)  => {
-        e.preventDefault();
-        setPrediction(null);
-        Response(setPrediction, setinputMood, inputMood);
-        // try{
+        try{
+            e.preventDefault();
+            setPrediction(null);
+            Response(setPrediction, setinputMood, inputMood);
+            // try{
 
         //     const response  = await fetch('http://localhost:8000/api/process_input/',{
         //         method: 'POST',
@@ -44,6 +48,9 @@ export default function TextInput(){
 
         // }
 
+        }catch(err){
+            console.log(err);
+        }
 
 
     }
@@ -72,13 +79,13 @@ export default function TextInput(){
 
         <div className="mt-3">
             
-           
             {prediction && (
                 <div>
                       
                     {/* <p>{prediction}</p> */}
                     {/* <Genre mood={prediction} onGenreId={setGenreId}/> */}
-                <MovieGenreView mood={prediction}></MovieGenreView>
+                {/* <MovieGenreView mood={prediction}></MovieGenreView> */}
+                <Movie mood={prediction}></Movie>
                 
                     
                 </div>
