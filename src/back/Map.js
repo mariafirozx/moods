@@ -4,7 +4,7 @@ import React from "react";
 export default function Map(mood){
 
     const mapToGenre = {
-        anger: [80, 99, 35], //crime, doc, comedy
+        anger: [80, 99], //crime, doc, comedy
         disgust: [10752, 9648], //war, mystery
         fear: [53, 27, 18, 35], //thriller, horror, drama, comedy
         joy: [28, 16, 35, 10751, 10749, 14], //action, Animation, comedy, family, romance, fantasy

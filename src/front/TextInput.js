@@ -14,6 +14,7 @@ export default function TextInput(){
     
     
     const textInputRef = useRef(null);
+    const movieList = useRef(null);
 
 
     const handleSubmit = async (e)  => {
@@ -21,6 +22,8 @@ export default function TextInput(){
             e.preventDefault();
             setPrediction(null);
             Response(setPrediction, setinputMood, inputMood);
+
+            
             // try{
 
         //     const response  = await fetch('http://localhost:8000/api/process_input/',{
@@ -54,13 +57,20 @@ export default function TextInput(){
 
 
     }
-
+    
     const handleChange = (e) => {
         e.preventDefault();
         setinputMood(textInputRef.current.value);
-       
+        
     }
-
+    
+    useEffect(()=>{
+        if(prediction && movieList.current){
+            movieList.current.scrollIntoView({
+                behavior: 'smooth'
+            })
+        }
+    }, [prediction])
     
     return(
         <>
@@ -77,22 +87,26 @@ export default function TextInput(){
         </form>
 
 
-        <div className="mt-3">
-            
-            {prediction && (
-                <div>
-                      
-                    {/* <p>{prediction}</p> */}
-                    {/* <Genre mood={prediction} onGenreId={setGenreId}/> */}
-                {/* <MovieGenreView mood={prediction}></MovieGenreView> */}
-                <Movie mood={prediction}></Movie>
-                
-                    
-                </div>
-                   
+        <div  className="mt-3">
 
-                
-            )}
+            <div ref={movieList} id='movie-list'>
+
+                {prediction && (
+                    <div>
+                        
+                        {/* <p>{prediction}</p> */}
+                        {/* <Genre mood={prediction} onGenreId={setGenreId}/> */}
+                    {/* <MovieGenreView mood={prediction}></MovieGenreView> */}
+                    <Movie mood={prediction}></Movie>
+                    
+                        
+                    </div>
+                    
+
+                    
+                )}
+            </div>
+            
 
         
         </div>

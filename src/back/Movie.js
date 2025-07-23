@@ -16,9 +16,11 @@ export default function Movie({mood}) {
     useEffect(() => {
         if(!genre || genre.length === 0) return;
         
-         //initiliaze empty movie arr
+         //initiliaze empty movie map
         const movieMap = new Map(); // to remove dups
+
         const fetchMovies = async () => {
+
             setIsLoading(true);
             setError(null);
 
@@ -95,18 +97,18 @@ export default function Movie({mood}) {
 
         )}
 
-        {!isloading && movie.length === 0 && (
-            <div>No movies found for your mood</div>
-        )}
 
         {!isloading && movie.length > 0 && (
-
+            
             <div className='movie-list-row'>
                 {output}
             </div>
 
-        )}
+)}
 
+    {/* {!isloading && movie.length === 0 && (
+        <div>No movies found for your mood</div>
+    )} */}
 
         </>
     )
