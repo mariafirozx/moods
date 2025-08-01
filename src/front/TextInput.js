@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { use } from 'react';
 import { useState, useEffect } from 'react';
 import { useRef } from 'react';
 import Response from '../back/Response';
 import Genre from '../back/Genre';
+import poster from '../assets/imgs/movieP.jpg';
+
 
 import MovieGenreView from './MovieGenreView';
 import Movie from '../back/Movie';
+
+import MovieList from './MovieList';
 
 export default function TextInput(){
 
@@ -22,6 +26,8 @@ export default function TextInput(){
             e.preventDefault();
             setPrediction(null);
             Response(setPrediction, setinputMood, inputMood);
+
+            // scrollIntoView();
 
             
             // try{
@@ -63,14 +69,29 @@ export default function TextInput(){
         setinputMood(textInputRef.current.value);
         
     }
-    
-    useEffect(()=>{
-        if(prediction && movieList.current){
-            movieList.current.scrollIntoView({
-                behavior: 'smooth'
-            })
+
+    const scroll = () =>{
+        if(movieList.current){
+            movieList.current.scrollIntoView({behavior: 'smooth'})
+            console.log('working');
         }
-    }, [prediction])
+    }
+
+    // useEffect(() => {
+    //     if(prediction && movieList.current){
+    //         movieList.current.scrollIntoView({behavior: 'smooth'})
+    //     }
+    // }, [prediction]);
+    
+    // useEffect(()=>{
+
+    //     scrollIntoView, []
+    //     // if(movieList.current){
+    //     //     movieList.current.scrollIntoView({
+    //     //         behavior: 'smooth'
+    //     //     })
+    //     // }
+    // })
     
     return(
         <>
@@ -86,6 +107,16 @@ export default function TextInput(){
     
         </form>
 
+        <MovieList
+
+        poster={poster}
+        movieTitle={'Scarface'}
+        releaseDate={'2001'}
+        movieDescription={
+            'He loved the American Dream. With a vengeance. After getting a green card in exchange for assassinating a Cuban government official, Tony Montana stakes a claim on the drug trade in Miami. Viciously murdering anyone who stands in his way, Tony eventually becomes the biggest drug lord in the state, controlling nearly all the cocaine that comes through Miami'}
+        
+        ></MovieList>
+
 
         <div  className="mt-3">
 
@@ -97,7 +128,7 @@ export default function TextInput(){
                         {/* <p>{prediction}</p> */}
                         {/* <Genre mood={prediction} onGenreId={setGenreId}/> */}
                     {/* <MovieGenreView mood={prediction}></MovieGenreView> */}
-                    <Movie mood={prediction}></Movie>
+                    <Movie mood={prediction} onScroll={scroll}></Movie>
                     
                         
                     </div>

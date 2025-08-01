@@ -3,7 +3,7 @@ export default function Navbar(props) {
         <>
         <nav className="navbar navbar-expand-lg navbar-light navbar-custom">
             <div className="container-md">
-                <a className="navbar-brand lead">{props.title}</a>
+                <a className="navbar-brand ">{props.title}</a>
 
             </div>
 

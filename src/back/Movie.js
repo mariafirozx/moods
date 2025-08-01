@@ -6,7 +6,7 @@ import { options } from './BASE.js';
 import MovieList from '../front/MovieList.js';
 import Genre from './Genre.js';
 
-export default function Movie({mood}) {
+export default function Movie({mood, onScroll}) {
     const [movie, setMovie] = useState([]);
     const [genre, setGenre] = useState(null)
     const [isloading, setIsLoading] = useState(false);
@@ -44,6 +44,9 @@ export default function Movie({mood}) {
 
                 setMovie(Array.from(movieMap.values())); //convert map vals to array
                 
+                if(onScroll){
+                    onScroll();
+                }
 
                 // setLoading(false);
             
