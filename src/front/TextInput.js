@@ -107,7 +107,7 @@ export default function TextInput(){
     
         </form>
 
-        <MovieList
+        {/* <MovieList
 
         poster={poster}
         movieTitle={'Scarface'}
@@ -115,7 +115,7 @@ export default function TextInput(){
         movieDescription={
             'He loved the American Dream. With a vengeance. After getting a green card in exchange for assassinating a Cuban government official, Tony Montana stakes a claim on the drug trade in Miami. Viciously murdering anyone who stands in his way, Tony eventually becomes the biggest drug lord in the state, controlling nearly all the cocaine that comes through Miami'}
         
-        ></MovieList>
+        ></MovieList> */}
 
 
         <div  className="mt-3">

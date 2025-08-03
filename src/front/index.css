@@ -1,13 +1,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Onest:wght@100..900&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Onest:wght@100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Onest:wght@100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 :root{
     --primary-color: rgb(216, 203, 232);
     --secondary-color: #9b6cdc;
-    --card-primary-color: #d7d3e2;
+    --card-primary-color: #dcd9d2;
     --bg-color: #100c06; 
     --third--primary: #eee4cd;
+    --title-primary: #2e2925;
+    --text-primary: #7f7c77;
+    
 
 }
 body{
@@ -116,6 +119,13 @@ justify-content: center;
     background: var(--bg-color);
     filter: url(#noiseFilter); */
 }
+
+.navbar{
+    background-color: var(--bg-color);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
 .navbar-custom{
     /* background-color: var(--primary-color); */
     padding: 15px;
@@ -200,38 +210,60 @@ justify-content: center;
      flex-direction: column;
     background-color: var(--card-primary-color);
     border-radius: 18px;
-    padding: 15px 5px 70px 5px;
+    padding: 17px 4px 10px 4px;
     box-shadow: 0 4px 8px rgba(255, 252, 252, 0.292);
     margin: 20px;
-    height: 35rem;
-    width: 24rem;
+    /* height: 33rem; */
+    width: 22rem;
+    overflow: hidden;
     /* border-color: var(--secondary-color); */
 }
 .movie-title{
-    font-size: 40px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-weight: bold;
-    color: black;
-    font-family: 'PT Sans', sans-serif;
+    font-size: 45px;
+    text-overflow: unset;
+    white-space: normal;
+    font-weight: bolder;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    margin-bottom: 0.5em;
+    max-height: 4.5em;
+    color: var(--title-primary);
+    font-family: "Bebas Neue", sans-serif;
+}
+.release-date{
+    font-size: 15px;
+    font-weight: 400;
+    justify-content: space-between;
+    margin-left: 1em;
 }
 .card-img-top{
-    margin-left: 39px; 
+    border-radius: 5px;
+    margin-left: 20px; 
     align-items: center;
     justify-content: center;
-    width:80%;
+    width:90%;
     max-height: 65%;
     object-fit: cover;
 }
 
 .movie-text{
     font-size: 12px;
-    color: black;
-    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: var(--text-primary);
+    font-family: 'PT Sans', sans-serif;
 }
 .description{
-    font-size: 10px;
-    width: 17rem;
+    font-weight: 500;
+    font-size: 12px;
+    width: 18.5rem;
+    justify-content: space-between;
+    text-align: justify;
+}
+.description, .movie-text{
+    width: 100%;
+    text-align: justify;
+    /* max-height: 8em; */
+    overflow: visible;
 }
 
 .movie-list-row{

@@ -9,8 +9,10 @@ export default function MovieList({movieTitle, releaseDate, movieDescription, po
         <div className="card" style={{maxWidth: 340}}>
             <img src={poster} className="card-img-top" alt="..."></img>
             <div className="card-body">
-                <h1 className="movie-title">{movieTitle}</h1>
-                 <h5 className='release-date'>{releaseDate}</h5>
+                <h1 className="movie-title">{movieTitle}
+                    <span className='release-date'>{releaseDate}</span>
+                </h1>
+                 {/* <h5 className='release-date'>{releaseDate}</h5> */}
                  <p className="movie-text description">{movieDescription}</p>
                  <p className="movie-text"><small className="text-muted">Last updated 3 mins ago</small></p>
 

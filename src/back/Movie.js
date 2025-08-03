@@ -80,6 +80,7 @@ export default function Movie({mood, onScroll}) {
             key={m.id}
             poster={`https://image.tmdb.org/t/p/w500${m.poster_path}`}
             movieTitle={m.title} 
+            releaseDate={m.release_date.slice(0,4)}
             movieDescription={m.overview || "No description available."}
         />
     ));
