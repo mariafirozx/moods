@@ -5,6 +5,7 @@ export default function Navbar(props) {
             <div className="container-md">
                 <a className="navbar-brand ">{props.title}</a>
 
+            <button className="login-button">LOGIN</button>
             </div>
 
         </nav>

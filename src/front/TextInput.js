@@ -10,6 +10,7 @@ import MovieGenreView from './MovieGenreView';
 import Movie from '../back/Movie';
 
 import MovieList from './MovieList';
+import LoginForm from './LoginForm';
 
 export default function TextInput(){
 
@@ -107,6 +108,8 @@ export default function TextInput(){
     
         </form>
 
+
+
         {/* <MovieList
 
         poster={poster}
@@ -141,6 +144,11 @@ export default function TextInput(){
 
         
         </div>
+
+        <LoginForm></LoginForm>
+
+
+
 
        
     </div>
