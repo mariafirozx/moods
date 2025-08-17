@@ -1,1 +1,1 @@
-*MOODS: A Movie Recommendation WebApp based on your Moods!
+**MOODS: A Movie Recommendation WebApp based on your Moods!**
