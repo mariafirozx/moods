@@ -2,7 +2,7 @@ import { Form } from "react-router";
 import React from 'react';
 import {useState, useEffect}  from 'react';
 
-export default function LoginForm(){
+export default function LoginForm({onClose}){
 
     return(
 
@@ -10,7 +10,9 @@ export default function LoginForm(){
             <div className="formContainer">
 
                 <div className="cardForm">
-                    <div className="head">Continue with google...</div>
+                    <div className="head">Continue with google...
+                        <i className="bi bi-x" onClick={onClose}></i>
+                    </div>
                         <div className="FormContent"> Hey cinephile! dont leave just yet... to save your mood pick login 
                             to continue enjoying the full experience!
                             <br />

@@ -1,7 +1,7 @@
 import React from 'react';
 import poster from '../assets/imgs/movieP.jpg';
 
-export default function MovieList({movieTitle, releaseDate, movieDescription, poster}) {
+export default function MovieList({movieTitle, releaseDate, movieDescription, poster, onFav}) {
     return(
         <>
         
@@ -9,12 +9,21 @@ export default function MovieList({movieTitle, releaseDate, movieDescription, po
         <div className="card" style={{maxWidth: 340}}>
             <img src={poster} className="card-img-top" alt="..."></img>
             <div className="card-body">
-                <h1 className="movie-title">{movieTitle}
-                    <span className='release-date'>{releaseDate}</span>
-                </h1>
+
+                    <div className='card-header'>
+                        <h1 className="movie-title">{movieTitle}
+
+                        <span className='release-date'>{releaseDate}</span>
+                        </h1>
+                        {/* <i class="favIcon bi bi-heart"></i> */}
+                        <i className="favIcon bi bi-heart-fill" onClick={onFav}></i>
+
+                    </div>
+                    {/* <img className='favIcon' width="24" height="24" src="https://img.icons8.com/plumpy/24/hearts.png" alt="hearts"/> */}
+               
                  {/* <h5 className='release-date'>{releaseDate}</h5> */}
                  <p className="movie-text description">{movieDescription}</p>
-                 <p className="movie-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                 <p className="movie-text"><small className="text-muted">movie review: Letterboxd</small></p>
 
                 
             </div>

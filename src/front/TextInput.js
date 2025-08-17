@@ -12,7 +12,7 @@ import Movie from '../back/Movie';
 import MovieList from './MovieList';
 import LoginForm from './LoginForm';
 
-export default function TextInput(){
+export default function TextInput({onFav}){
 
     const [inputMood, setinputMood] = useState('');
     const [prediction, setPrediction] = useState();
@@ -61,8 +61,6 @@ export default function TextInput(){
         }catch(err){
             console.log(err);
         }
-
-
     }
     
     const handleChange = (e) => {
@@ -113,7 +111,7 @@ export default function TextInput(){
         {/* <MovieList
 
         poster={poster}
-        movieTitle={'Scarface'}
+        movieTitle={'10 Things I Hate About You'}
         releaseDate={'2001'}
         movieDescription={
             'He loved the American Dream. With a vengeance. After getting a green card in exchange for assassinating a Cuban government official, Tony Montana stakes a claim on the drug trade in Miami. Viciously murdering anyone who stands in his way, Tony eventually becomes the biggest drug lord in the state, controlling nearly all the cocaine that comes through Miami'}
@@ -131,28 +129,18 @@ export default function TextInput(){
                         {/* <p>{prediction}</p> */}
                         {/* <Genre mood={prediction} onGenreId={setGenreId}/> */}
                     {/* <MovieGenreView mood={prediction}></MovieGenreView> */}
-                    <Movie mood={prediction} onScroll={scroll}></Movie>
+                    <Movie mood={prediction} onScroll={scroll} onFav={onFav}></Movie>
                     
                         
                     </div>
                     
-
-                    
                 )}
             </div>
             
-
-        
         </div>
-
-        <LoginForm></LoginForm>
-
-
-
 
        
     </div>
-        
         
         </>
 

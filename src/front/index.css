@@ -264,8 +264,9 @@ position: relative;
     color: var(--secondary-color);
     text-align: center;
     line-height: 1;
-
- } 
+    
+} 
+/*movie card*/
 
 .card{
      display: flex;
@@ -280,23 +281,91 @@ position: relative;
     overflow: hidden;
     /* border-color: var(--secondary-color); */
 }
+
+.card-header{
+    background-color: var(--card-primary-color);
+    border: none;
+    display: flex;
+    gap: 1em;
+    margin-right: 1px;
+    margin-left: 0;
+    padding-left: 0;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+
+/* .card-header{
+    display: flex;
+    background-color: var(--card-primary-color);
+    border: none;
+    
+    gap: 1em;
+    
+} */
+
+
 .movie-title{
-    font-size: 45px;
-    text-overflow: unset;
-    white-space: normal;
+
+    /* font-size: 1.5rem;
     font-weight: bolder;
-    word-break: break-word;
-    overflow-wrap: anywhere;
+    color: var(--title-primary);
+    font-family: "Bebas Neue", sans-serif;
+    white-space: nowrap;        /* Prevents breaking */
+    /* overflow: hidden;
+    text-overflow: ellipsis;    /* Adds ... if too long */
+    /* flex: 1 1 auto;             /* Allows title to take available space */
+    /* margin-bottom: 0;  */
+
+
+    /* font-size: 45px;
+    text-overflow: unset;
+    white-space: nowrap;
+    font-weight: bolder;
+    /* word-break: break-word; */
+     /* overflow-wrap: anywhere;
     margin-bottom: 0.5em;
     max-height: 4.5em;
     color: var(--title-primary);
+    font-family: "Bebas Neue", sans-serif;  */
+     
+    font-size: 47px;
+    /* text-overflow: unset; */
+    margin-right: 1px;
+    white-space: normal;
+    font-weight: bolder;
+   white-space: wrap;
+   word-break: normal;
+   
+   /* flex: 1 1 auto; */
+    margin-bottom: 0.10em;
+    max-height: 4.5em;
+    color: var(--title-primary);
     font-family: "Bebas Neue", sans-serif;
+
 }
 .release-date{
+    font-family: "Bebas Neue", sans-serif;
     font-size: 15px;
     font-weight: 400;
-    justify-content: space-between;
+    white-space: nowrap;
     margin-left: 1em;
+    /* font-size: 15px;
+    font-weight: 400;
+    margin-left: 1em;
+    white-space: nowrap;
+    flex-shrink: 0; */
+}
+.favIcon{
+    position: relative;
+    color: #2f2a1e35;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-left: 1em;
+    font-size: 25px;
+}
+
+.favIcon:hover{
+    color: var(--secondary-color);
 }
 .card-img-top{
     border-radius: 5px;
@@ -417,10 +486,11 @@ input{
   box-shadow: 10px 10px 0 var(--third--primary);
   overflow: hidden;
   transition: all 0.3s ease;
+  
 }
 .head {
   
-  font-size: 18px;
+  font-size: 20px;
   font-family: 'Onest', sans-serif;
   font-weight: 900;
   width: 100%;
@@ -432,9 +502,21 @@ input{
   border-bottom: 3px solid #000000;
 }
 
+.head i{
+    left: 7em;
+    right: 10px;
+    position: relative;
+    font-size: 25px;
+    cursor: pointer;
+}
+.head i::hover{
+    color: #e38323;
+
+}
+
 .FormContent {
   padding: 25px 12px;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--title-primary);
   font-family: 'PT Sans', sans-serif;
@@ -451,12 +533,16 @@ input{
 
 }
 .googleIcon{
-    margin-left: 5px;
+    margin-left: 10px;
+    
 }
+
+
 .logBtn:hover {
   translate: 1.5px 1.5px;
   box-shadow: 1.5px 1.5px 0 #000000;
-  background: violet;
+  background: rgb(189, 157, 189);
+  color: var(--third--primary);
 }
 
 .logBtn:active {
@@ -466,6 +552,19 @@ input{
 
 .cardForm:hover {
   translate: -6px;
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.84);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
+import { useState } from 'react';
+import LoginForm from './LoginForm';
 
 
 import TextInput from './TextInput';
@@ -8,9 +10,19 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
 export default function App() {
+    const [showForm, setShowForm] = useState(false);
+
+    function handleLoginForm(){
+        setShowForm(true);
+
+    }
+
+    function handleCloseForm(){
+        setShowForm(false);
+
+    }
 
 // initMDB({ Ripple });
-    const isVisible = false;
     return (
         <>
         
@@ -20,8 +32,16 @@ export default function App() {
             <div className='content'>
 
                 <div className='main-container'>
-                    <Navbar title="Moods"></Navbar>
+                    <Navbar 
+                    title="Moods" 
+                    onLogin = {handleLoginForm}
+                    ></Navbar>
 
+                    {showForm && (
+                            <div className="overlay" onClick={handleCloseForm}>
+                                <LoginForm onClose={handleCloseForm}></LoginForm>
+
+                            </div>)}
                
                 
                     <div className="container mb-5 mt-5 p-5">
@@ -34,7 +54,7 @@ export default function App() {
                                 <div className='tvGif'>
                                     <img className='gif' src={tvGif}></img>
                                 </div>
-                                <TextInput /> 
+                                <TextInput onFav={handleLoginForm}/> 
                                 {/* <TextContainer /> */}
 
                             </div>

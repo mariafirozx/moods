@@ -5,8 +5,9 @@ import { options } from './BASE.js';
 
 import MovieList from '../front/MovieList.js';
 import Genre from './Genre.js';
+import LoginForm from '../front/LoginForm.js';
 
-export default function Movie({mood, onScroll}) {
+export default function Movie({mood, onScroll, onFav}) {
     const [movie, setMovie] = useState([]);
     const [genre, setGenre] = useState(null)
     const [isloading, setIsLoading] = useState(false);
@@ -82,6 +83,7 @@ export default function Movie({mood, onScroll}) {
             movieTitle={m.title} 
             releaseDate={m.release_date.slice(0,4)}
             movieDescription={m.overview || "No description available."}
+            onFav={onFav}
         />
     ));
 
