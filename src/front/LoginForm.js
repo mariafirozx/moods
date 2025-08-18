@@ -2,7 +2,7 @@ import { Form } from "react-router";
 import React from 'react';
 import {useState, useEffect}  from 'react';
 
-export default function LoginForm({onClose}){
+export default function LoginForm({onClose, onAuth}){
 
     return(
 
@@ -16,7 +16,7 @@ export default function LoginForm({onClose}){
                         <div className="FormContent"> Hey cinephile! dont leave just yet... to save your mood pick login 
                             to continue enjoying the full experience!
                             <br />
-                            <button className="logBtn">
+                            <button className="logBtn" onClick={onAuth}>
                                 <img className="googleIcon" width="25" height="25" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
                                 Sign in with Google
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import { useState } from 'react';
 import LoginForm from './LoginForm';
+import Login from '../back/Login';
 
 
 import TextInput from './TextInput';
@@ -39,7 +40,7 @@ export default function App() {
 
                     {showForm && (
                             <div className="overlay" onClick={handleCloseForm}>
-                                <LoginForm onClose={handleCloseForm}></LoginForm>
+                                <LoginForm onClose={handleCloseForm} onAuth={Login}></LoginForm>
 
                             </div>)}
                
