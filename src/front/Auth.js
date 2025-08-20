@@ -5,9 +5,9 @@ import Login from "../back/Login";
 import Logout from "../back/Logout";
 
 
-export default function Auth(){
+export default function Auth({onLogin}){
 
-    const [user, setUser] = useState(null);
+   const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
     //compenet mount -> check auth state ; if session or not
@@ -29,24 +29,23 @@ export default function Auth(){
     }, []);
 
 
-    const handleLogin = async () =>{
-        Login();
+    // const handleLogin = async () =>{
+    //     Login();
 
-    }
+    // }
 
     const handleLogout = async ()=>{
-        Logout();
+       await supabase.auth.signOut();
+
         setUser(null); //update UI
     }
-
 
     return(
         <>
         {user? (
-            <button className="login-button" onClick={handleLogin}>LOGIN</button>
-            
+            <button className="logout-button" onClick={handleLogout}>LOGOUT</button>
         ): (
-             <button className="logout-button" onClick={handleLogout}>LOGOUT</button>
+            <button className="login-button" onClick={onLogin}>LOGIN</button>
 
         )}
         

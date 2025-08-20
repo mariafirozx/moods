@@ -9,7 +9,7 @@ export default function Map(mood){
         fear: [53, 27, 18, 35], //thriller, horror, drama, comedy
         joy: [28, 16, 35, 10751, 10749, 14], //action, Animation, comedy, family, romance, fantasy
         neutral: [36, 10402, 878, 37, 53], //history, music, sf, western
-        sadness: [27, 53, 35], //thriller, horror, crime, adventure
+        sadness: [27, 53], //thriller, horror, crime
         surprise: [10752, 36], //war, history
 
     }
