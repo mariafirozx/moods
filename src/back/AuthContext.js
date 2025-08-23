@@ -28,9 +28,8 @@ export function AuthProvider({children}){
         return()=> subscription.unsubscribe();
     },[]);
 
-    const handleLogin = async ()=>{
-
-        await Login();
+    function handleLoginForm() {
+         setShowLogin(true);
 
     }
 
@@ -39,14 +38,16 @@ export function AuthProvider({children}){
         setUser(null);
     }
 
-    const handleFaveIcon = () =>{
+     function handleFavIcon(){
+        console.log('handleFavIcon - user:' , user, 'showLogin', showLogin);
         if(!user){
+            console.log('showlogin to true');
             setShowLogin(true);
             return false; //allow fav action
         }
         return true; //prevent fav action
     };
-    const closeLoginForm = () =>{
+    function closeLoginForm (){
         setShowLogin(false);
     };
 
@@ -55,11 +56,13 @@ export function AuthProvider({children}){
             user,
             loading,
             showLogin,
-            handleLogin,
+            handleLoginForm,
             handleLogout,
-            handleFaveIcon,
+            handleFavIcon,
             closeLoginForm,
-            setShowLogin
+            setShowLogin,
+            debug: { user, showLogin, loading } // Optional debug info
+
 
         }}>
 

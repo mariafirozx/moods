@@ -1,11 +1,22 @@
 import React from 'react';
 import poster from '../assets/imgs/movieP.jpg';
+import { useAuth } from '../back/AuthContext';
 
-export default function MovieList({movieTitle, releaseDate, movieDescription, poster, onFav}) {
+export default function MovieList({movieTitle, releaseDate, movieDescription, poster}) {
+    const {handleFavIcon} = useAuth();
+
+    
+  const handleHeartClick = () => {
+    console.log('Heart icon clicked!');
+    const canProceed = handleFavIcon();
+    if (canProceed) {
+      console.log('User is logged in - adding to favorites');
+      // Your favorite logic here
+    }
+  };
     return(
         <>
         
-
         <div className="card" style={{maxWidth: 340}}>
             <img src={poster} className="card-img-top" alt="..."></img>
             <div className="card-body">
@@ -16,7 +27,7 @@ export default function MovieList({movieTitle, releaseDate, movieDescription, po
                         <span className='release-date'>{releaseDate}</span>
                         </h1>
                         {/* <i class="favIcon bi bi-heart"></i> */}
-                        <i className="favIcon bi bi-heart-fill" onClick={onFav}></i>
+                        <i className="favIcon bi bi-heart-fill" onClick={handleHeartClick}></i>
 
                     </div>
                     {/* <img className='favIcon' width="24" height="24" src="https://img.icons8.com/plumpy/24/hearts.png" alt="hearts"/> */}

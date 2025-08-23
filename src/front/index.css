@@ -617,6 +617,10 @@ input{
     z-index: 1000;
 }
 
+.modal{
+    /* background: transparent;
+    padding: 0; */
+}
 
 /*footer*/
 .contain{

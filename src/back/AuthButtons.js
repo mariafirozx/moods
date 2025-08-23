@@ -2,7 +2,7 @@ import React, { use } from "react";
 import {useAuth} from "./AuthContext"
 
 export default function AuthButtons(){
-    const {user, loading, handleLogin, handleLogout} = useAuth();
+    const {user, loading, handleLoginForm, handleLogout} = useAuth();
 
     if(loading){
         //
@@ -29,7 +29,7 @@ export default function AuthButtons(){
            {user? (
             <button className="logout-button" onClick={handleLogout}>LOGOUT</button>
         ): (
-            <button className="login-button" onClick={handleLogin}>LOGIN</button>
+            <button className="login-button" onClick={handleLoginForm}>LOGIN</button>
 
         )}
 

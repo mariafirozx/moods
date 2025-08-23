@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { use } from 'react';
 import Navbar from './Navbar';
 import { useState } from 'react';
 import LoginForm from './LoginForm';
 import Login from '../back/Login';
-import { AuthProvider } from '../back/AuthContext';
-import {GlobalLoginModal} from './GlobalLoginModal'
-
+import { AuthProvider, useAuth } from '../back/AuthContext';
+import GlobalLoginModal from './GlobalLoginModal';
 import TextInput from './TextInput';
 import tvGif from '../assets/tvGif.gif'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
-export default function App() {
+export default function App(){
+    return(
+        <AuthProvider>
+            <AppContent></AppContent>
+        </AuthProvider>
+    )
+}
+
+
+
+function AppContent() {
+    const {showLogin, setShowLogin} = useAuth();
 
     // const [showForm, setShowForm] = useState(false);
 
@@ -28,9 +38,24 @@ export default function App() {
 // initMDB({ Ripple });
     return (
         <>
-        <AuthProvider>
-        
-        
+        {/* <button 
+        style={{
+          position: 'fixed', 
+          top: '10px', 
+          right: '10px', 
+          zIndex: 9999,
+          background: 'red',
+          color: 'white',
+          padding: '10px'
+        }}
+        onClick={() => {
+          console.log('Setting showLogin to:', !showLogin);
+          setShowLogin(!showLogin);
+        }}
+      >
+        {showLogin ? 'Hide Modal' : 'Show Modal'}
+      </button> */}
+       
             <div className='main'></div>
 
             <div className='content'>
@@ -59,7 +84,7 @@ export default function App() {
                                     <img className='gif' src={tvGif}></img>
                                 </div>
     
-                                <TextInput onFav={handleLoginForm}/> 
+                                <TextInput/> 
                                 {/* <TextContainer /> */}
 
                             </div>
@@ -113,11 +138,11 @@ export default function App() {
                 </filter>
   
             </svg>
+
+             
+
             
             <GlobalLoginModal></GlobalLoginModal>
-            
-         </AuthProvider>
-
            
         </>
     )

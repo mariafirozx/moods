@@ -10,10 +10,15 @@ export default function GlobalLoginModal(){
 
     return(
         <>
-            <div className="overlay" onClick={showLogin}>
-                <LoginForm onClose={closeLoginForm} onAuth={Login}></LoginForm>
+                <div className="overlay" onClick={closeLoginForm}>
+                    <LoginForm onClose={closeLoginForm} onAuth={Login}></LoginForm>
 
-            </div> */
+                    
+                </div> 
+
+        
+            
+
         </>
     )
 }
