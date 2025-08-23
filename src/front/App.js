@@ -4,13 +4,14 @@ import { useState } from 'react';
 import LoginForm from './LoginForm';
 import Login from '../back/Login';
 
-
 import TextInput from './TextInput';
 import tvGif from '../assets/tvGif.gif'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
 export default function App() {
+
+
     const [showForm, setShowForm] = useState(false);
 
     function handleLoginForm(){
@@ -55,6 +56,7 @@ export default function App() {
                                 <div className='tvGif'>
                                     <img className='gif' src={tvGif}></img>
                                 </div>
+    
                                 <TextInput onFav={handleLoginForm}/> 
                                 {/* <TextContainer /> */}
 
@@ -72,8 +74,6 @@ export default function App() {
                     
 
                     </div>
-
-                    
 
                 </div>
                 
