@@ -4,6 +4,10 @@ import Login from "./Login";
 
 const AuthContext = createContext();
 
+export const useAuth =()=>{
+    const context = useContext(AuthContext);
+    return context;
+}
 export function AuthProvider({children}){
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);

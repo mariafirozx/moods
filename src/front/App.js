@@ -3,6 +3,8 @@ import Navbar from './Navbar';
 import { useState } from 'react';
 import LoginForm from './LoginForm';
 import Login from '../back/Login';
+import { AuthProvider } from '../back/AuthContext';
+import {GlobalLoginModal} from './GlobalLoginModal'
 
 import TextInput from './TextInput';
 import tvGif from '../assets/tvGif.gif'
@@ -11,24 +13,24 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default function App() {
 
+    // const [showForm, setShowForm] = useState(false);
 
-    const [showForm, setShowForm] = useState(false);
+    // function handleLoginForm(){
+    //     setShowForm(true);
 
-    function handleLoginForm(){
-        setShowForm(true);
+    // }
 
-    }
+    // function handleCloseForm(){
+    //     setShowForm(false);
 
-    function handleCloseForm(){
-        setShowForm(false);
-
-    }
+    // }
 
 // initMDB({ Ripple });
     return (
         <>
+        <AuthProvider>
         
-            
+        
             <div className='main'></div>
 
             <div className='content'>
@@ -36,14 +38,14 @@ export default function App() {
                 <div className='main-container'>
                     <Navbar 
                     title="Moods" 
-                    onLogin = {handleLoginForm}
+                    // onLogin = {handleLoginForm}
                     ></Navbar>
 
-                    {showForm && (
+                    {/* {showForm && (
                             <div className="overlay" onClick={handleCloseForm}>
                                 <LoginForm onClose={handleCloseForm} onAuth={Login}></LoginForm>
 
-                            </div>)}
+                            </div>)} */}
                
                 
                     <div className="container mb-5 mt-5 p-5">
@@ -112,7 +114,9 @@ export default function App() {
   
             </svg>
             
+            <GlobalLoginModal></GlobalLoginModal>
             
+         </AuthProvider>
 
            
         </>
