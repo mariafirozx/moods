@@ -174,7 +174,9 @@ justify-content: center;
   background-color: var(--black10);
   position: sticky;
   
-  z-index: 2;
+  z-index: 2; 
+
+  
 
 }
 .navbar-custom{

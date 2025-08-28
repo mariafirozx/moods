@@ -44,13 +44,12 @@ function AppContent() {
             <div className='content'>
 
                 <div className='main-container'>
-                    <div className='d-flex align-items-center justify-content-between px-3'>
                         <Navbar 
                         title="Moods" 
                         // onLogin = {handleLoginForm}
                         ></Navbar>
 
-                        {user? (
+                        {/* {user? (
 
 
                             <button className="logout-button" onClick={handleLogout}>LOGOUT</button> 
@@ -63,12 +62,9 @@ function AppContent() {
 
                         ):(
                             <div></div>
-                        )}
+                        )} */}
 
-                    </div>
-
-                    
-
+                
                     <div className="container mb-5 mt-5 p-5">
                     
                         <div className="row">
