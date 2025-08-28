@@ -22,6 +22,7 @@ export default function App(){
 
 function AppContent() {
     const {showLogin, setShowLogin} = useAuth();
+    const {user, handleLogout} = useAuth();
 
     // const [showForm, setShowForm] = useState(false);
 
@@ -38,41 +39,36 @@ function AppContent() {
 // initMDB({ Ripple });
     return (
         <>
-        {/* <button 
-        style={{
-          position: 'fixed', 
-          top: '10px', 
-          right: '10px', 
-          zIndex: 9999,
-          background: 'red',
-          color: 'white',
-          padding: '10px'
-        }}
-        onClick={() => {
-          console.log('Setting showLogin to:', !showLogin);
-          setShowLogin(!showLogin);
-        }}
-      >
-        {showLogin ? 'Hide Modal' : 'Show Modal'}
-      </button> */}
-       
+    
             <div className='main'></div>
-
             <div className='content'>
 
                 <div className='main-container'>
-                    <Navbar 
-                    title="Moods" 
-                    // onLogin = {handleLoginForm}
-                    ></Navbar>
+                    <div className='d-flex align-items-center justify-content-between px-3'>
+                        <Navbar 
+                        title="Moods" 
+                        // onLogin = {handleLoginForm}
+                        ></Navbar>
 
-                    {/* {showForm && (
-                            <div className="overlay" onClick={handleCloseForm}>
-                                <LoginForm onClose={handleCloseForm} onAuth={Login}></LoginForm>
+                        {user? (
 
-                            </div>)} */}
-               
-                
+
+                            <button className="logout-button" onClick={handleLogout}>LOGOUT</button> 
+
+                            // <div className='avatar position-absolute top-0 end-0 pe-3 pt-2'>
+
+                            //     <img className="userAvatar rounded-circle" src={user.user_metadata.picture}></img>
+                            // </div>
+
+
+                        ):(
+                            <div></div>
+                        )}
+
+                    </div>
+
+                    
+
                     <div className="container mb-5 mt-5 p-5">
                     
                         <div className="row">
@@ -104,22 +100,18 @@ function AppContent() {
 
                 </div>
                 
-
                 <footer className="contain">
 
                     <div className='icons'>
                             <a href='https://www.linkedin.com/in/marya-fairoz/' target='_blank'><i className="bi bi-linkedin"></i></a>
                             <a href="https://github.com/mariafirozx" target='_blank'><i className="bi bi-github"></i></a>
-
                     </div>
-                    
                         <p className="text">
                             designed & created by zahra.
 
                         </p>
 
-                        
-
+                    
                 </footer>
 
                     
