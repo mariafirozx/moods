@@ -11,6 +11,8 @@
     --title-primary: #2e2925;
     --text-primary: #7f7c77;
     --black10:#332B28;
+    --onHover: #6b625f;
+    
 
 }
 body{
@@ -156,22 +158,24 @@ justify-content: center;
   justify-content: left;
   position: sticky;
   z-index: 2; */
-
-    height: 60px;
+ /* margin-left: 20px; */
+  height: 60px;
   width: 50%;
   margin: 45px auto 19px;
   padding: 0 1em;
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  top: 2em;
+  /* margin-left: 25em; */
   
   justify-content: center;  /* Push left and right apart */
   gap: 1rem;
 
   box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.15),
               0px 10px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 9px;
-  background-color: var(--black10);
+  border-radius: 20px;
+  background-color: var(--third--primary);
   position: sticky;
   
   z-index: 2; 
@@ -187,12 +191,12 @@ justify-content: center;
 .navbar-brand{
     font-size: 34px;
     font-weight: bold;
-    color: var(--third--primary);
+    color: var(--title-primary);
     font-family: 'Inter', sans-serif;
 
 }
 .navbar-brand:hover{
-    color: var(--third--primary);
+    color: var(--title-primary);
 }
 
 .nav-right{
@@ -216,16 +220,18 @@ justify-content: center;
     
 }
 
+
+
 /*LOG BUTTON STYle*/
 .login-button {
 position: relative;
  appearance: none;
- background-color: transparent;
+ background-color: var(--title-primary);
  border: 0.125em solid var(--third--primary);
  border-radius: 0.9375em;
  box-sizing: border-box;
  color: var(--third--primary);
- left: 2em;
+ left: 1em;
  cursor: pointer;
  display: inline-block;
  font-family: 'Inter', sans-serif;
@@ -237,7 +243,7 @@ position: relative;
  min-height: 1.5em;
  min-width: 0;
  outline: none;
- padding: 1em 3.2em;
+ padding: 0.8em 2.8em;
  text-align: center;
  text-decoration: none;
  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
@@ -311,6 +317,9 @@ position: relative;
  transform: translateY(0);
 }
 
+.btnlog{
+    margin-top: 2.5em;
+}
 .displayName{
     /* font-size: 18px;
     font-family: 'Inter', sans-serif;
@@ -359,10 +368,15 @@ position: relative;
  .navbar ul li a {
 font-size: 18px;
   padding: 0.25em 1em 0.25em 1em;
-  color: var(--third--primary);
+  color: var(--title-primary);
   text-decoration: none;
   font-family: "Inter", sans-serif;
-  font-weight: 450;
+  font-weight: 550;
+}
+
+.navbar ul li a:hover{
+    text-decoration:line-through;
+    color: var(--onHover);
 }
 /**/
 
@@ -416,6 +430,9 @@ font-size: 18px;
     text-decoration: none;
 }
 
+.container{
+    margin-left: 2em;
+}
 .title{
     font-size: 75px;
     font-weight: bold;

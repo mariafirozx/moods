@@ -13,7 +13,7 @@ export default function Navbar(props) {
             <nav className="navbar sticky-top">
                 <div className="container-md">
                     <a className="navbar-brand ">{props.title}</a>
-                    {user? (
+                    {/* {user? (
                         <div>
                             <ul>
                                 <li><a href="#">Favorite</a></li>
@@ -24,7 +24,7 @@ export default function Navbar(props) {
                     ): (
                         <div></div>
 
-                    )}
+                    )} */}
                     <AuthButtons></AuthButtons>
                     {/* <Auth onLogin={props.onLogin}></Auth> */}
 
@@ -40,14 +40,10 @@ export default function Navbar(props) {
             </nav>
                          {user? (
 
-
-                            <button className="logout-button" onClick={handleLogout}>LOGOUT</button> 
-
-                            // <div className='avatar position-absolute top-0 end-0 pe-3 pt-2'>
-
-                            //     <img className="userAvatar rounded-circle" src={user.user_metadata.picture}></img>
-                            // </div>
-
+                            <div className="btnlog position-absolute top-0 end-0 pe-3 pt-2">
+                                
+                                <button className="logout-button" onClick={handleLogout}>LOGOUT</button> 
+                            </div>
 
                         ):(
                             <div></div>

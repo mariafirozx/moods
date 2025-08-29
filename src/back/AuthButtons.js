@@ -30,6 +30,9 @@ export default function AuthButtons(){
         <div>
            {user? (
             <div className="d-flex nav-right">
+                <ul>
+                     <li><a href="#">My Favorites</a></li>
+                 </ul>
                 <span className="text-light displayName">Hi, {user.user_metadata.name.split(' ')[0]}!</span>
                 <img className="userAvatar rounded-circle" src={user.user_metadata.picture}></img>
 
