@@ -4,6 +4,7 @@ import {useAuth} from "./AuthContext"
 export default function AuthButtons(){
     const {user, loading, handleLoginForm, handleLogout} = useAuth();
     
+    // console.log(user.user_metadata.picture);
 
     if(loading){
         //
@@ -31,10 +32,14 @@ export default function AuthButtons(){
            {user? (
             <div className="d-flex nav-right">
                 <ul>
-                     <li><a href="#">My Favorites</a></li>
+                     <li><a href="#Favorites">My Favorites</a></li>
                  </ul>
-                <span className="text-light displayName">Hi, {user.user_metadata.name.split(' ')[0]}!</span>
-                <img className="userAvatar rounded-circle" src={user.user_metadata.picture}></img>
+                 <div className="user-info">
+
+                    <span className="text-light displayName">Hi, {user.user_metadata.name.split(' ')[0]}!</span> 
+                    <img className="userAvatar rounded-circle " src={user.user_metadata.picture} referrerPolicy="no-referrer"></img>  
+                 </div>
+
 
                 {/* <button className="logout-button" onClick={handleLogout}>LOGOUT</button> */}
 

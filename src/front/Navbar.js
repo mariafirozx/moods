@@ -10,8 +10,8 @@ export default function Navbar(props) {
     return(
         <>
 
-            <nav className="navbar sticky-top">
-                <div className="container-md">
+            <nav className="navbar sticky-top mb-2">
+                <div className="container-md mb-5">
                     <a className="navbar-brand ">{props.title}</a>
                     {/* {user? (
                         <div>

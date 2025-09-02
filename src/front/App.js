@@ -65,7 +65,7 @@ function AppContent() {
                         )} */}
 
                 
-                    <div className="container mb-5 mt-5 p-5">
+                    <div className="container">
                     
                         <div className="row">
                             <div className="col-md-12 d-flex  flex-column align-items-center custom-align">

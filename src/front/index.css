@@ -103,6 +103,7 @@ justify-content: center;
     flex-direction: column;
     position: relative;
     z-index: 1;
+    margin-right: 3em;
 }
 
 .main-container{
@@ -159,14 +160,16 @@ justify-content: center;
   position: sticky;
   z-index: 2; */
  /* margin-left: 20px; */
-  height: 60px;
-  width: 50%;
-  margin: 45px auto 19px;
+  height: 50px;
+  width: 45%;
+  margin: 40px auto;
   padding: 0 1em;
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  top: 2em;
+  top: 1em;
+  display: flex;
+  
   /* margin-left: 25em; */
   
   justify-content: center;  /* Push left and right apart */
@@ -177,19 +180,18 @@ justify-content: center;
   border-radius: 20px;
   background-color: var(--third--primary);
   position: sticky;
-  
   z-index: 2; 
 
-  
-
 }
+
+
 .navbar-custom{
     /* background-color: var(--primary-color); */
     /* padding: 15px; */
 }
 
 .navbar-brand{
-    font-size: 34px;
+    font-size: 27px;
     font-weight: bold;
     color: var(--title-primary);
     font-family: 'Inter', sans-serif;
@@ -220,8 +222,9 @@ justify-content: center;
     
 }
 
-
-
+.container-md{
+    /* background-color: palegoldenrod; */
+}
 /*LOG BUTTON STYle*/
 .login-button {
 position: relative;
@@ -279,7 +282,7 @@ position: relative;
  border-radius: 0.9375em;
  box-sizing: border-box;
  color: var(--third--primary);
- right: 3em;
+ right: 1em;
  cursor: pointer;
  display: inline-block;
  font-family: 'Inter', sans-serif;
@@ -320,6 +323,17 @@ position: relative;
 .btnlog{
     margin-top: 2.5em;
 }
+
+.user-info{
+    /* background-color: purple; */
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: .1em;
+
+    display: flex ;
+}
+
 .displayName{
     /* font-size: 18px;
     font-family: 'Inter', sans-serif;
@@ -329,7 +343,7 @@ position: relative;
     margin-right: 2rem; */
 
 
-    font-size: 18px;
+    font-size: 17px;
   font-family: 'Inter', sans-serif;
   font-weight: 550;
   color: var(--secondary-color) !important;
@@ -366,7 +380,7 @@ position: relative;
   text-decoration: none;
 }
  .navbar ul li a {
-font-size: 18px;
+font-size: 15px;
   padding: 0.25em 1em 0.25em 1em;
   color: var(--title-primary);
   text-decoration: none;
@@ -431,10 +445,16 @@ font-size: 18px;
 }
 
 .container{
-    margin-left: 2em;
+    justify-content: center;
+    align-items: center;
+    /* margin-right: 12em; */
+    /* background-color: #4c4753; */
+    margin: auto;
+    margin-top: 13em;
+    /* margin-bottom: 20px; */
 }
 .title{
-    font-size: 75px;
+    font-size: 85px;
     font-weight: bold;
     font-family: 'Inter', sans-serif;
     color: var(--third--primary);
@@ -566,7 +586,7 @@ font-size: 18px;
 }
 .description{
     font-weight: 500;
-    font-size: 12px;
+    font-size: 14px;
     width: 18.5rem;
     justify-content: space-between;
     text-align: justify;
