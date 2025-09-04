@@ -1,5 +1,6 @@
 import React, { use } from "react";
 import {useAuth} from "./AuthContext"
+import { Link } from "react-router-dom";
 
 export default function AuthButtons(){
     const {user, loading, handleLoginForm, handleLogout} = useAuth();
@@ -9,6 +10,14 @@ export default function AuthButtons(){
     if(loading){
         //
     }
+    // let listItems = topics.map((item, ii)=>{
+    //     <li className="nav-item" key={ii}>
+    //         <Link to={`/favorite/${item}`} className="nav-link">{item}</Link>
+
+    //     </li>
+    // })
+
+   
 
 //     return (
 //     <div className="auth-buttons">
@@ -32,7 +41,11 @@ export default function AuthButtons(){
            {user? (
             <div className="d-flex nav-right">
                 <ul>
-                     <li><a href="#Favorites">My Favorites</a></li>
+                    <li className='nav-item'>
+                     <Link to="favorite/" className='nav-link'>Favorite</Link>
+
+                    </li>
+                     {/* <li><a href="#Favorites">My Favorites</a></li> */}
                  </ul>
                  <div className="user-info">
 

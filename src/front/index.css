@@ -107,7 +107,7 @@ justify-content: center;
 }
 
 .main-container{
-    flex: 1 0 auto;
+    flex: 1;
 
 }
 
@@ -222,7 +222,7 @@ justify-content: center;
     
 }
 
-.container-md{
+.container{
     /* background-color: palegoldenrod; */
 }
 /*LOG BUTTON STYle*/
@@ -326,7 +326,7 @@ position: relative;
 
 .user-info{
     /* background-color: purple; */
-    margin-top: 5px;
+    margin-top: 3px;
     justify-content: center;
     align-items: center;
     gap: .1em;
@@ -454,7 +454,7 @@ font-size: 15px;
     /* margin-bottom: 20px; */
 }
 .title{
-    font-size: 85px;
+    font-size: 89px;
     font-weight: bold;
     font-family: 'Inter', sans-serif;
     color: var(--third--primary);

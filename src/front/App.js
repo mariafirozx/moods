@@ -8,6 +8,7 @@ import GlobalLoginModal from './GlobalLoginModal';
 import TextInput from './TextInput';
 import tvGif from '../assets/tvGif.gif'
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { Outlet } from 'react-router';
 
 
 export default function App(){
@@ -46,26 +47,13 @@ function AppContent() {
                 <div className='main-container'>
                         <Navbar 
                         title="Moods" 
-                        // onLogin = {handleLoginForm}
                         ></Navbar>
 
-                        {/* {user? (
-
-
-                            <button className="logout-button" onClick={handleLogout}>LOGOUT</button> 
-
-                            // <div className='avatar position-absolute top-0 end-0 pe-3 pt-2'>
-
-                            //     <img className="userAvatar rounded-circle" src={user.user_metadata.picture}></img>
-                            // </div>
-
-
-                        ):(
-                            <div></div>
-                        )} */}
-
+                      <Outlet></Outlet>
                 
-                    <div className="container">
+
+
+                    {/* <div className="container">
                     
                         <div className="row">
                             <div className="col-md-12 d-flex  flex-column align-items-center custom-align">
@@ -77,9 +65,8 @@ function AppContent() {
                                 </div>
     
                                 <TextInput/> 
-                                {/* <TextContainer /> */}
 
-                            </div>
+                             </div>
                         </div>
                         <div className="row mt-5">
                             <div className="col-md-12 d-flex justify-content-center">
@@ -87,12 +74,12 @@ function AppContent() {
                                 movieTitle="Scarface" 
                                 movieDescription="Watch this classic. Even if you are depressed to your soul. LOL"
                                 /> */}
-                            </div>
-                        </div>
-                    
+                            {/* </div>
+                        </div> 
+                     
                     
 
-                    </div>
+                    </div>    */}
 
                 </div>
                 

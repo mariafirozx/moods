@@ -7,6 +7,11 @@ export default function Favorite(){
     
 
     return(
-        <></>
+        <>
+        
+            <div className="FavPage">
+                <h1>Your Favorites</h1>
+            </div>
+        </>
     )
 }
