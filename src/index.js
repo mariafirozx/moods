@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './front/index.css';
 import FavLayout from './front/FavLayout.js';
 import Favorite from './back/Favorite.js';
+import {FavPage} from './back/favPage.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -18,6 +19,7 @@ root.render(
                 <Route index element={<Home/>}></Route>
 
                 <Route path='/favorite' element={<FavLayout/>}>
+                    <Route element={<FavPage></FavPage>}></Route>
                     {/* <Route element={<Favorite></Favorite>}></Route> */}
                 </Route>
 

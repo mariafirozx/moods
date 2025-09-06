@@ -776,6 +776,13 @@ input{
     padding: 0; */
 }
 
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
 /*footer*/
 .contain{
     width: 100vw;

@@ -1,6 +1,8 @@
 import { Outlet } from "react-router";
+import { useAuth } from "../back/AuthContext";
 
 export default function FavLayout(){
+
     return(
         <>
          <div className="container">
