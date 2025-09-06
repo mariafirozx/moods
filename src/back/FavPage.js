@@ -27,11 +27,11 @@ export default async function FavPage() {
     }, [user])
 
     if (!user) {
-    return <p className="text-center">Please log in to see your favorites.</p>;
+    return <p className="text-center">Please log in to see your fav.</p>;
   }
 
-  if (favorites.length === 0) {
-    return <p className="text-center">You got no favorites yet...</p>;
+  if (fav.length === 0) {
+    return <p className="text-center">You got no fav yet...</p>;
   }
 
   return(
