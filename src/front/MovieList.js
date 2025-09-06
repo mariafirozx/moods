@@ -2,24 +2,48 @@ import React from 'react';
 import poster from '../assets/imgs/movieP.jpg';
 import { useAuth } from '../back/AuthContext';
 import { useState, useEffect } from 'react';
-import {Favorite} from '../back/Favorite';
+import Favorite from '../back/Favorite.js';
+import { supabase } from '../back/Supbase.js';
 
 export default function MovieList({movieID, movieTitle, releaseDate, movieDescription, poster, fav}) {
     const {handleFavIcon, user} = useAuth();
 
     const [isActive, setIsActive] = useState(false);
     
-    
+    //check db for mounting
+
+    useEffect(() =>{
+        const fetchFav = async ()=>{
+            if(!user) return;
+
+            const {data, error} = await supabase
+                .from('favMovies')
+                .select('id')
+                .eq('user', user.id)
+                .eq('movieID', movieID)
+                .maybeSingle(); //prevents 406 error -> meaning if more than one row
+
+                if(data){
+                    setIsActive(true);
+                }
+
+
+        }
+        fetchFav();
+
+    },[user, movieID])
+
     const handleHeartClick = async () => {
         console.log('Heart icon clicked!');
         const userActive = handleFavIcon();
         if (userActive) {
-        console.log('User is logged in - adding to favorites');
-        // Your favorite logic here
-        setIsActive(true);
+            console.log('User is logged in - adding to favorites');
+            // Your favorite logic here
+            
+            //ADD TO DB
         
-        //ADD TO DB
-        await Favorite(user.id, movieID, movieTitle, releaseDate, poster)
+            await Favorite(user.id, movieID, movieTitle, releaseDate, poster);
+            setIsActive(true);
 
 
         }

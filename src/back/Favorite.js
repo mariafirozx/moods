@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 import { supabase } from "./Supbase";
 import {MovieList} from "../front/MovieList"; 
 
-export default async function Favorite({user, movieID, movieTitle, releaseDate, poster, fav}){
+export default  async function Favorite(user, movieID, movieTitle, releaseDate, poster, fav){
     //create fav db
     
     const {data, error} = await supabase
         .from('favMovies')
         .insert({
+            user: user.id,
             movieID: movieID,
             movieTitle: movieTitle,
             releaseDate: releaseDate,
