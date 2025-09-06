@@ -1,18 +1,28 @@
 import React from 'react';
 import poster from '../assets/imgs/movieP.jpg';
 import { useAuth } from '../back/AuthContext';
+import { useState, useEffect } from 'react';
+import {Favorite} from '../back/Favorite';
 
-export default function MovieList({movieTitle, releaseDate, movieDescription, poster}) {
-    const {handleFavIcon} = useAuth();
+export default function MovieList({movieID, movieTitle, releaseDate, movieDescription, poster, fav}) {
+    const {handleFavIcon, user} = useAuth();
 
+    const [isActive, setIsActive] = useState(false);
     
-  const handleHeartClick = () => {
-    console.log('Heart icon clicked!');
-    const canProceed = handleFavIcon();
-    if (canProceed) {
-      console.log('User is logged in - adding to favorites');
-      // Your favorite logic here
-    }
+    
+    const handleHeartClick = async () => {
+        console.log('Heart icon clicked!');
+        const userActive = handleFavIcon();
+        if (userActive) {
+        console.log('User is logged in - adding to favorites');
+        // Your favorite logic here
+        setIsActive(true);
+        
+        //ADD TO DB
+        await Favorite(user.id, movieID, movieTitle, releaseDate, poster)
+
+
+        }
   };
     return(
         <>
@@ -27,7 +37,10 @@ export default function MovieList({movieTitle, releaseDate, movieDescription, po
                         <span className='release-date'>{releaseDate}</span>
                         </h1>
                         {/* <i class="favIcon bi bi-heart"></i> */}
-                        <i className="favIcon bi bi-heart-fill" onClick={handleHeartClick}></i>
+                        <div className={`favIcon ${isActive ? 'active' : ' '}`} onClick={handleHeartClick} >
+                            <i className= "bi bi-heart-fill"></i>
+
+                        </div>
 
                     </div>
                     {/* <img className='favIcon' width="24" height="24" src="https://img.icons8.com/plumpy/24/hearts.png" alt="hearts"/> */}

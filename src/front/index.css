@@ -568,6 +568,9 @@ font-size: 15px;
 .favIcon:hover{
     color: var(--secondary-color);
 }
+.favIcon.active{
+    color: var(--secondary-color);
+}
 .card-img-top{
     border-radius: 5px;
     margin-left: 20px; 

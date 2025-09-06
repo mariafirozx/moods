@@ -19,8 +19,6 @@ export default function App(){
     )
 }
 
-
-
 function AppContent() {
     const {showLogin, setShowLogin} = useAuth();
     const {user, handleLogout} = useAuth();
@@ -40,7 +38,6 @@ function AppContent() {
 // initMDB({ Ripple });
     return (
         <>
-    
             <div className='main'></div>
             <div className='content'>
 
@@ -51,8 +48,6 @@ function AppContent() {
 
                       <Outlet></Outlet>
                 
-
-
                     {/* <div className="container">
                     
                         <div className="row">

@@ -79,6 +79,7 @@ export default function Movie({mood, onScroll, onFav}) {
     const output = movie.map((m) => (
         <MovieList 
             key={m.id}
+            movieID={m.id}
             poster={`https://image.tmdb.org/t/p/w500${m.poster_path}`}
             movieTitle={m.title} 
             releaseDate={m.release_date.slice(0,4)}
