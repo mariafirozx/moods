@@ -56,10 +56,13 @@ export default function MovieList({movieID, movieTitle, releaseDate, movieDescri
             <div className="card-body">
 
                     <div className='card-header'>
+                        <div className="rightTitle">
                         <h1 className="movie-title">{movieTitle}
 
                         <span className='release-date'>{releaseDate}</span>
                         </h1>
+
+                        </div>
                         {/* <i class="favIcon bi bi-heart"></i> */}
                         <div className={`favIcon ${isActive ? 'active' : ' '}`} onClick={handleHeartClick} >
                             <i className= "bi bi-heart-fill"></i>

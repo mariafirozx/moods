@@ -4,21 +4,24 @@ import { useAuth } from "./AuthContext";
 import MovieList from "../front/MovieList";
 import { useState, useEffect } from "react";
 
-export default async function FavPage() {
+export default function FavPage() {
     const {user} = useAuth();
     const [fav, setFav] = useState([]);
     
     //fetch from db
     useEffect(()=>{
+        if(!user) return; //forgot this... 
         const fetchFavMovie = async ()=>{
+            // const userID = await user.id;
             const {data, error} = await supabase
                 .from('favMovies')
-                .select('id','movieID', 'movieTitle', 'releaseDate', 'poster')
+                .select('id, movieID , movieTitle , releaseDate, poster')
                 .eq('user',user.id)
 
             if(error) alert('!!error fetching fav')
             
             setFav(data);
+            console.log(data);
 
         }
 
@@ -27,17 +30,17 @@ export default async function FavPage() {
     }, [user])
 
     if (!user) {
-    return <p className="text-center">Please log in to see your fav.</p>;
+    return <h2 className="title lead text-center fs-4">Please login to save your favs!</h2>;
   }
 
   if (fav.length === 0) {
-    return <p className="text-center">You got no fav yet...</p>;
+    return <p className="bottomText h5 mt-10 text-center">Your liked movies will show up here...</p>;
   }
 
   return(
     <>
-    <div className="fav-grid d-flex flex-wrap justify-content-center gap-4 mt-4">
-        {fav.map((f)=>{
+    <div className="fav-grid mt-1">
+        {fav.map((f)=>(
             <MovieList
                 key={f.id}
                 movieID={f.movieID}
@@ -47,7 +50,7 @@ export default async function FavPage() {
                 fav={true}
             
             ></MovieList>
-        })}
+        ))}
     </div>
     </>
   )

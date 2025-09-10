@@ -19,7 +19,7 @@ root.render(
                 <Route index element={<Home/>}></Route>
 
                 <Route path='/favorite' element={<FavLayout/>}>
-                    <Route element={<FavPage></FavPage>}></Route>
+                    <Route index element={<FavPage></FavPage>}></Route> {/*without index el= page isnt rendered*/}
                     {/* <Route element={<Favorite></Favorite>}></Route> */}
                 </Route>
 

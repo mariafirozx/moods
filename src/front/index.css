@@ -505,6 +505,13 @@ font-size: 15px;
 } */
 
 
+.rightTitle{
+     display: flex;
+  justify-content: space-between;  /* title left, date right */
+  align-items: flex-start;         /* align properly if title wraps */
+  gap: 0.5rem; 
+}
+
 .movie-title{
 
     /* font-size: 1.5rem;
@@ -529,27 +536,45 @@ font-size: 15px;
     color: var(--title-primary);
     font-family: "Bebas Neue", sans-serif;  */
      
-    font-size: 47px;
-    /* text-overflow: unset; */
+    /* font-size: 47px;
+  
     margin-right: 1px;
     white-space: normal;
     font-weight: bolder;
    white-space: wrap;
-   word-break: normal;
-   
+   word-break: normal; */
+   /**/
+    /* word-break: normal;
+    /* wrap: break-word; */
+    /* white-space: wrap;
+    line-height: 1.2;
+   font-weight: bolder; */ 
    /* flex: 1 1 auto; */
-    margin-bottom: 0.10em;
-    max-height: 4.5em;
+
+   
+    /* margin-bottom: 0.10em;
+    max-height: 4.5em; */
     color: var(--title-primary);
     font-family: "Bebas Neue", sans-serif;
+    font-size: 47px;
+  font-weight: bolder;
+  margin: 0;
+  word-break: normal;
+  overflow-wrap: break-word;   /* wrap at words, not characters */
+  line-height: 1.3;
 
 }
 .release-date{
     font-family: "Bebas Neue", sans-serif;
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 500;
     white-space: nowrap;
-    margin-left: 1em;
+    margin-left: 0.6rem;
+    /* margin-left: 1em;
+    display: block;         force on new line */
+  /* font-size: 0.9rem;
+  margin-left: 1em; */
+
     /* font-size: 15px;
     font-weight: 400;
     margin-left: 1em;
@@ -776,11 +801,105 @@ input{
     padding: 0; */
 }
 
-.favorites-grid {
+/*fav card*/
+
+.fav-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(7rem,12rem));
+  gap: 0;
   width: 100%;
+  justify-items: start;
+  margin-bottom: 5rem;
+}
+.fav-grid .row{
+    margin-bottom: 5rem;
+    gap: 2rem;
+}
+
+.fav-grid .card{
+    /* width: 8rem;
+    height: 20rem;
+    margin: 5px;
+    padding: 5px 4em 5px;
+    padding-left: 0;
+    font-size: 0.9rem; */
+     width: 10rem;
+               /* smaller width */
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  height: 15rem;
+  display: flex;
+   cursor: pointer;
+  transition: all 0.5s;
+      box-shadow: none;
+
+  align-items: stretch;
+  /* border-width: 2%; */
+      border: 3px solid var(--secondary-color);
+
+margin-top: 3rem;
+  
+}
+.fav-grid .card:hover{
+    border: 3px solid var(--third--primary); 
+  transform: scale(1.05);
+}
+.fav-grid .card:active{
+  transform: scale(0.95) rotateZ(1.7deg);
+
+}
+.fav-grid .card-img-top{
+    /* width:125%;
+    max-height: 65%;
+    object-fit: cover; */
+    border-radius: 10px;
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    align-items: center;
+
+
+           /* fix smaller height */
+}
+
+.fav-grid .movie-title{
+    /* font-size: 20px;
+    word-break: normal;
+    overflow-wrap: break-word;
+    white-space: normal;
+    line-height: 1.2; */
+    font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0.2rem;
+  line-height: 1.2;
+  display: none;
+
+}
+.fav-grid .release-date{
+     font-size: 0.8rem;
+     display: none;
+}
+.fav-grid .movie-text{
+    display: none;
+}
+.fav-grid .favIcon{
+    display: none;
+}
+.titleFav{
+    position: absolute;
+    font-size: 45px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    color: var(--third--primary);
+    top: 4em;
+
 }
 
 /*footer*/
@@ -790,7 +909,7 @@ input{
     z-index: 1;
     text-align: center;
     background-color: var(--bg-color);
-    bottom: 5em;
+    /* bottom: 5em; */
     
     position: relative;
     
@@ -807,9 +926,12 @@ input{
 
 
 }
+footer.contain{
+    margin-top: auto;
+}
 .text, a{
     color: var(--third--primary);
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .icons{
@@ -822,6 +944,6 @@ input{
 }
 
 .icons a i {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 }
 
