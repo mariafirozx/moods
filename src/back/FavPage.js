@@ -19,8 +19,16 @@ export default function FavPage() {
                 .eq('user',user.id)
 
             if(error) alert('!!error fetching fav')
-            
-            setFav(data);
+                //remove dup fav movieID
+            const unique = [];
+            const prevFav = new Set();
+            for(const movie of data){
+                if(!prevFav.has(movie.movieID)){
+                    unique.push(movie);
+                    prevFav.add(movie.movieID);
+                }
+            }
+            setFav(unique);
             console.log(data);
 
         }
@@ -28,6 +36,8 @@ export default function FavPage() {
         fetchFavMovie();
 
     }, [user])
+
+    
 
     if (!user) {
     return <h2 className="title lead text-center fs-4">Please login to save your favs!</h2>;

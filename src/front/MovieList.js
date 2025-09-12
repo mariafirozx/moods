@@ -4,13 +4,15 @@ import { useAuth } from '../back/AuthContext';
 import { useState, useEffect } from 'react';
 import Favorite from '../back/Favorite.js';
 import { supabase } from '../back/Supbase.js';
+import Popup from './Popup.js';
 
 export default function MovieList({movieID, movieTitle, releaseDate, movieDescription, poster, fav}) {
     const {handleFavIcon, user} = useAuth();
 
     const [isActive, setIsActive] = useState(false);
+    const [popup, setPopup] = useState(false);
     
-    //check db for mounting
+    //check db for mounting -- if fav movies exist ? keep the icon active in main movie list 
 
     useEffect(() =>{
         const fetchFav = async ()=>{
@@ -44,6 +46,8 @@ export default function MovieList({movieID, movieTitle, releaseDate, movieDescri
         
             await Favorite(user.id, movieID, movieTitle, releaseDate, poster);
             setIsActive(true);
+            setPopup(true);
+            setTimeout(()=> setPopup(false), 3000)
 
 
         }
@@ -79,6 +83,12 @@ export default function MovieList({movieID, movieTitle, releaseDate, movieDescri
                 
             </div>
         </div>
+
+        <div>
+            {popup && ( <Popup></Popup>
+
+            )}
+        </div>
        
             {/* <div className="card mb-3" style={{ maxWidth: 540 }}>
                 <div className="row g-0">
@@ -95,6 +105,7 @@ export default function MovieList({movieID, movieTitle, releaseDate, movieDescri
                     </div>
                 </div>
             </div> */}
+
         
         </>
     )
