@@ -451,6 +451,7 @@ font-size: 15px;
     /* background-color: #4c4753; */
     margin: auto;
     margin-top: 13em;
+    
     /* margin-bottom: 20px; */
 }
 .title{
@@ -458,17 +459,35 @@ font-size: 15px;
     font-weight: bold;
     font-family: 'Inter', sans-serif;
     color: var(--third--primary);
+    margin-bottom: 2px;
 }
-.bottomText{
+/* .bottomText{
     font-size: 20px;
     font-family: 'Onest', sans-serif;
     color: var(--secondary-color);
     text-align: center;
     line-height: 1;
     
-} 
+}  */
 /*movie card*/
+.movieTag{
+    position: relative;
+    /* display: flex; */
+    margin-left: 20em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    width: 100%;
+}
+.movieTag h1{
+    margin-bottom: 1.5rem;
+    width: 100%;
+    font-size: 55px;
+    font-family: 'Inter' sans-serif;
+    color: var(--third--primary);
 
+}
 .card{
      display: flex;
      flex-direction: column;
@@ -627,6 +646,7 @@ font-size: 15px;
 }
 
 .movie-list-row{
+    /* margin-top: 13em; */
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -635,39 +655,70 @@ font-size: 15px;
 
 #movie-list{
     min-height: 600px;
-    margin-top: 40px;
+    margin-top: 60px;
     scroll-margin-top: 100px;
 }
 .form{
-    width: 100%;
-    max-width: 300px;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
 }
 .form-control{
-    width:  100%;
-    padding: 4px;
+    width: 450px;
+    /* width:  100%;
+    padding: 7px 16px;
     border-radius: 25px;
-    border: 1px solid var(--secondary-color);
+    border: 0;
+    border-bottom: 2px solid var(--third--primary);
+    outline: 0;
+
     color: black;
-    background-color: rgb(235, 233, 233);
+    background: transparent;
     font-family: 'Onest', sans-serif;
-    /* font-family: 'Inter', sans-serif; */
     font-size: 16px;
+    transition: border-color 0.2s;
+    box-sizing: border-box; */
+    background: 0;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid var(--secondary-color);
+    outline: none;
+    transition: box-shadow 0.5s ease;
+    color: var(--third--primary) !important;
+    text-align: center;
+        font-family: 'Onest', sans-serif;
+
+    
 }
 
 .form-control::placeholder{
-    color: var(--secondary-color);
-    padding-left: 12px;
-    justify-content: center;
-    text-align:left;
+    color: var(--third--primary);
+    
+    text-align: center;
+    font-size: 1rem;
+    font-style: italic;
+    opacity: 50%;
 
+}
+.form-control:focus::placeholder{
+    opacity: 0;
 }
 input{
     cursor: text;
 }
 
 .form-control:focus{
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 5px rgba(155, 108, 220, 0.5);
+    /* background-color: transparent;
+    border-color: var(--secondary-color); */
+      background: 0;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #7f5af057;
+    outline: none;
+    box-shadow: 0px 10px 10px -10px #7f5af0;
 }
 .mr-2{
     margin-right: 5rem;
@@ -909,17 +960,22 @@ margin-top: 3rem;
     position: fixed;
     left: 50%;
     bottom: 40px; /* distance from bottom */
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(100%);
    
     z-index: 9999;
-   
-    animation: fadeInUp 0.4s;
-}
+    transition: transform 0.4s cubic-bezier(.23,1,.32,1), opacity 0.4s;
+    opacity: 0;
 
-@keyframes fadeInUp {
+    /* animation: fadeInUp 0.4s; */
+}
+.popup-bottom.active{
+    transform: translateX(-50%) translateY(-40px); 
+    opacity: 1;
+}
+/* @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px) translateX(-50%);}
     to { opacity: 1; transform: translateY(0) translateX(-50%);}
-}
+} */
 
 label {
  background-color: #c8b0ea;
@@ -982,15 +1038,7 @@ input + label .action span {
  transition: all .5s;
 }
 
-input + label .action span.option-1 {
- transform: translate(0px,0%);
- opacity: 1;
-}
 
-input:checked + label .action span.option-1 {
- transform: translate(0px,-100%);
- opacity: 0;
-}
 
 input + label .action span.option-2 {
  transform: translate(0px,100%);
@@ -1002,7 +1050,41 @@ input:checked + label .action span.option-2 {
  opacity: 1;
 }
 
+.fav-grid .deleteOverlay{
+    position: relative;
+    padding: 7px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: var(--secondary-color);
+    opacity: 95%;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    margin-right: 0;
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 20px;
+    display: none;
 
+}
+.deletebtn i{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    color: var(--third--primary);
+
+}
+.fav-grid .deletebtn i:hover{
+    color: #1e0a39;
+}
+.fav-grid .card:hover .deleteOverlay{
+    display: flex;
+}
+.fav-grid .card:hover .card-img-top{
+    opacity: 85%;
+    transition: opacity 0.3s;
+}
 /*footer*/
 .contain{
     width: 100vw;

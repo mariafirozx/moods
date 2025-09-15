@@ -108,6 +108,10 @@ export default function Movie({mood, onScroll, onFav}) {
         {!isloading && movie.length > 0 && (
             
             <div className='movie-list-row'>
+                <div className='movieTag'>
+
+                <h1 >Here's what your mood wants</h1>
+                </div>
                 {output}
             </div>
 

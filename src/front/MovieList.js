@@ -6,12 +6,13 @@ import Favorite from '../back/Favorite.js';
 import { supabase } from '../back/Supbase.js';
 import Popup from './Popup.js';
 
-export default function MovieList({movieID, movieTitle, releaseDate, movieDescription, poster, fav}) {
+export default function MovieList({movieID, movieTitle, releaseDate, movieDescription, poster, fav, onDelete}) {
     const {handleFavIcon, user} = useAuth();
 
     const [isActive, setIsActive] = useState(false);
     const [popup, setPopup] = useState(false);
-    
+    const [popupActive, setPopupActive] = useState(false);
+    // const [showOverlay, setShowOverlay] = useState(false);
     //check db for mounting -- if fav movies exist ? keep the icon active in main movie list 
 
     useEffect(() =>{
@@ -47,7 +48,11 @@ export default function MovieList({movieID, movieTitle, releaseDate, movieDescri
             await Favorite(user.id, movieID, movieTitle, releaseDate, poster);
             setIsActive(true);
             setPopup(true);
-            setTimeout(()=> setPopup(false), 3000)
+            setPopupActive(true);
+            setTimeout(()=> setPopupActive(false),2500);
+            setTimeout(()=> setPopup(false), 3000);
+
+            // setShowOverlay(true);
 
 
         }
@@ -82,31 +87,28 @@ export default function MovieList({movieID, movieTitle, releaseDate, movieDescri
 
                 
             </div>
+
+            {fav && (
+                <div className='deleteOverlay'>
+                    <div className='deletebtn'>
+                        <i class="bi bi-x-circle-fill" onClick={onDelete}></i>
+                    </div>
+                    
+                </div>
+            )}
+
         </div>
 
         <div>
-            {popup && ( <Popup></Popup>
+            {popup && ( <Popup active={popupActive} tagline={"Added to favorites"}></Popup>
 
             )}
         </div>
-       
-            {/* <div className="card mb-3" style={{ maxWidth: 540 }}>
-                <div className="row g-0">
-                    <div className="col-md-4">
-                        <img src={poster} className="img-fluid rounded-start" alt="..."></img>
-                    </div>
-                    <div className="col-md-8">
-                        <div className="card-body">
-                            <h1 className="movie-title">{movieTitle}</h1>
-                            <h5 className='release-date'>{releaseDate}</h5>
-                            <p className="movie-text">{movieDescription}</p>
-                            <p className="movie-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
 
         
+
+       
+           
         </>
     )
 
