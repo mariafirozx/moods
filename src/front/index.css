@@ -19,7 +19,7 @@
       --primary-700: hsl(243, 26%, 15%);
 
       --gif-texture: url(https://64.media.tumblr.com/da60c13b478dda09ab90c27e880983b8/tumblr_nd4pwdPKdc1tun3l0o1_1280.gifv);
-
+    --noise-texture: url(https://i.gyazo.com/a26366e538851a5c569ff648e99b7fd4.png); 
 
 }
 body{
@@ -65,6 +65,9 @@ body, #root{
     overflow-y: auto;
     overflow-x: hidden;
     background-color: var(--bg-color);
+    background-image: url("../assets/imgs/film-texture2.jpeg");
+    background-size: 100% 100%;
+      background-repeat: no-repeat, no-repeat;
 
 
 
@@ -101,10 +104,11 @@ body, #root{
 
 .bg-gif{
     position: fixed;
-    top: 0; left: 0;
+    top: 0; 
+    left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
+    z-index: 1;
     background-image: var(--gif-texture);
     background-repeat: no-repeat;
     background-size: cover;
