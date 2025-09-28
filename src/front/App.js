@@ -38,6 +38,7 @@ function AppContent() {
 // initMDB({ Ripple });
     return (
         <>
+        <div className='bg-gif'></div>
             <div className='main'></div>
             <div className='content'>
 
@@ -85,7 +86,7 @@ function AppContent() {
                             <a href="https://github.com/mariafirozx" target='_blank'><i className="bi bi-github"></i></a>
                     </div>
                         <p className="text">
-                            designed & created by zahra.
+                            designed & created by zazu.
 
                         </p>
 

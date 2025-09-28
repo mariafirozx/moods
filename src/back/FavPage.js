@@ -63,7 +63,7 @@ export default function FavPage() {
     }
 
     if (!user) {
-    return <h2 className="title lead text-center fs-4">Please login to save your favs!</h2>;
+    return <h2 className="bottomText lead text-center fs-4">Please login to save your favs!</h2>;
   }
 
   if (fav.length === 0) {
