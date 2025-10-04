@@ -4,6 +4,7 @@ import { useAuth } from "./AuthContext";
 import MovieList from "../front/MovieList";
 import { useState, useEffect } from "react";
 import Popup from "../front/Popup";
+import DeleteFav from "./DeleteFav";
 
 export default function FavPage() {
     const {user} = useAuth();
@@ -26,13 +27,29 @@ export default function FavPage() {
                 //remove dup fav movieID
             const unique = [];
             const prevFav = new Set();
+            const dupID = []
             for(const movie of data){
                 if(!prevFav.has(movie.movieID)){
                     unique.push(movie);
                     prevFav.add(movie.movieID);
                 }
+
+                else{
+                    dupID.push(movie.id)
+                }
+            }
+
+            //remove from db
+            if(dupID.length >0){
+                await supabase
+                .from('favMovies')
+                .delete()
+                .in('id', dupID)
             }
             setFav(unique);
+
+            
+
             console.log(data);
 
         }
@@ -58,6 +75,8 @@ export default function FavPage() {
         setPopupActive(true);
         setTimeout(()=> setPopupActive(false),2500);
         setTimeout(()=> setPopup(false), 3000);
+
+        // DeleteFav(id, setFav, setDeleteID, setPopup, setPopupActive)
 
         
     }

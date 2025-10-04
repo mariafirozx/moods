@@ -12,6 +12,8 @@ export default function MovieList({movieID, movieTitle, releaseDate, movieDescri
     const [isActive, setIsActive] = useState(false);
     const [popup, setPopup] = useState(false);
     const [popupActive, setPopupActive] = useState(false);
+
+    const [isSelectFav, setisSelectFav] = useState(false);
     // const [showOverlay, setShowOverlay] = useState(false);
     //check db for mounting -- if fav movies exist ? keep the icon active in main movie list 
 
@@ -39,6 +41,8 @@ export default function MovieList({movieID, movieTitle, releaseDate, movieDescri
     const handleHeartClick = async () => {
         console.log('Heart icon clicked!');
         const userActive = handleFavIcon();
+
+        
         if (userActive) {
             console.log('User is logged in - adding to favorites');
             // Your favorite logic here
@@ -55,6 +59,20 @@ export default function MovieList({movieID, movieTitle, releaseDate, movieDescri
             // setShowOverlay(true);
 
 
+        }
+        if(isActive){
+            //unfav
+            await supabase
+                .from('favMovies')
+                .delete()
+                .eq('user', user.id)
+                .eq('movieID', movieID)
+
+            setIsActive(false);
+            setPopup(true);
+            setPopupActive(true);
+            setTimeout(()=> setPopupActive(false),2500);
+            setTimeout(()=> setPopup(false), 3000);
         }
   };
     return(
@@ -100,7 +118,7 @@ export default function MovieList({movieID, movieTitle, releaseDate, movieDescri
         </div>
 
         <div>
-            {popup && ( <Popup active={popupActive} tagline={"Added to favorites"}></Popup>
+            {popup && ( <Popup active={popupActive} tagline={isActive? "Added to favorites": "Removed from favorites"}></Popup>
 
             )}
         </div>

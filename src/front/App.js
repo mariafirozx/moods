@@ -38,6 +38,7 @@ function AppContent() {
 // initMDB({ Ripple });
     return (
         <>
+        <div className='grain-overlay'></div>
         <div className='bg-gif'></div>
             <div className='main'></div>
             <div className='content'>

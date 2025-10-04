@@ -65,9 +65,9 @@ body, #root{
     overflow-y: auto;
     overflow-x: hidden;
     background-color: var(--bg-color);
-    background-image: url("../assets/imgs/film-texture2.jpeg");
+    /* background-image: url("../assets/imgs/film-texture2.jpeg");
     background-size: 100% 100%;
-      background-repeat: no-repeat, no-repeat;
+      background-repeat: no-repeat, no-repeat; */
 
 
 
@@ -102,6 +102,19 @@ body, #root{
   background-attachment: fixed; */
 }
 
+.grain-overlay{
+
+    position: fixed;
+  inset: 0;
+  background-size: auto; /* or cover if you want it stretched */
+  opacity: 0.35; /* tweak for subtlety */
+  mix-blend-mode: overlay; /* try soft-light / multiply too */
+  pointer-events: none; /* don’t block clicks */
+  z-index: 1;
+    background-image: url('../assets/imgs/GRAVEL_OVERLAY.jpg');
+
+
+}
 .bg-gif{
     position: fixed;
     top: 0; 
@@ -112,7 +125,7 @@ body, #root{
     background-image: var(--gif-texture);
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.64; /* semi-transparent */
+    opacity: 0.15; /* semi-transparent */
     pointer-events: none;
 }
 
@@ -250,10 +263,11 @@ background-image: url("https://www.transparenttextures.com/patterns/white-textur
 
   box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.15),
               0px 10px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: var(--third--primary);
   position: sticky;
   z-index: 2; 
+  backdrop-filter: blur(15px);
 
 }
 
@@ -573,12 +587,14 @@ backdrop-filter: blur(20px);
 border: 1px solid rgba(245, 242, 242, 0.35); */
   padding: 21px;
   width: 40em;
-  left: .1em;
+  left: 1em;
+
   margin: 0px auto;
   border-radius: 1rem;
   background: hsl(from var(--primary-700)h s l/0.25);
-  backdrop-filter: blur(6px);
-
+  /* background-color: rgba(200,200,200,0.2); */
+  backdrop-filter: blur(15px);
+padding-bottom: 4em;
     /* background-color: #1e0a39; */
     
 }
@@ -786,12 +802,14 @@ border: 1px solid rgba(245, 242, 242, 0.35); */
     scroll-margin-top: 100px;
 }
 .form{
+    /* background-color: white; */
     padding: 0;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0.3em;
+    margin-top: 19em;
+    position: absolute;
 }
 .form-control{
     width: 420px;
