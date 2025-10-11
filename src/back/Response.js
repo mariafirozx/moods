@@ -1,7 +1,8 @@
 export default async function Response(setPrediction, setinputMood, inputMood) {
+    const API_BASE = process.env.REACT_APP_API_BASE_URL;
     try{
 
-        const response  = await fetch('http://localhost:8000/api/process_input/',{
+        const response  = await fetch(`${API_BASE}/api/process_input/`,{
                 method: 'POST',
                 headers:{
                     'Content-Type': 'application/json',
