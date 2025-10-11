@@ -286,6 +286,9 @@ background-image: url("https://www.transparenttextures.com/patterns/white-textur
 }
 .navbar-brand:hover{
     color: var(--title-primary);
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+
 }
 
 .nav-right{
