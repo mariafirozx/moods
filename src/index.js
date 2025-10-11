@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './front/index.css';
 import FavLayout from './front/FavLayout.js';
 import Favorite from './back/Favorite.js';
-import FavPage from './back/favPage.js';
+import FavPage from './back/FavPage.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
