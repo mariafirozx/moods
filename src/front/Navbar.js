@@ -13,7 +13,7 @@ export default function Navbar(props) {
         <>
 
             <nav className="navbar sticky-top mb-2">
-                <div className="container-md mb-5">
+                <div className="container-md mb-2">
                     <Link to='/' className="navbar-brand ">{props.title}</Link>
                     {/* {user? (
                         <div>
