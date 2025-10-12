@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Onest:wght@100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 :root{
     --primary-color: rgb(216, 203, 232);
-    --secondary-color: #9b6cdc;
+    --secondary-color: rgb(155,108,220);
     --card-primary-color: #dcd9d2;
     --bg-color: #100c06; 
     --third--primary: #eee4cd;
