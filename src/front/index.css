@@ -490,8 +490,8 @@ font-size: 15px;
 
      transition: all 0.2s ease-in-out;
   font-weight: 800;
-  text-shadow: 0 0 8px var(--secondary-color);
-  color: var(--secondary-color);
+  text-shadow: 0 0 8px var(--secondary-color) !important;
+  color: var(--secondary-color) !important;
 }
 /**/
 
