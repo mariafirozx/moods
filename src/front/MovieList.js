@@ -45,7 +45,7 @@ export default function MovieList({movieID, movieTitle, releaseDate, movieDescri
         
         if (userActive) {
             console.log('User is logged in - adding to favorites');
-            // Your favorite logic here
+            // fav logic here
             
             //ADD TO DB
         
