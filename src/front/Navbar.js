@@ -12,7 +12,7 @@ export default function Navbar(props) {
     return(
         <>
 
-            <nav className="navbar navbar-expand-md custom-navbar sticky-top mb-2">
+            <nav className="navbar  sticky-top mb-2">
                 <div className="container-md mb-2">
                     <Link to='/' className="navbar-brand fw-bold text-dark">{props.title}</Link>
                    

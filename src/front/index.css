@@ -1302,14 +1302,14 @@ footer.contain{
 /*mobile*/
 
 @media (max-width: 768px){
-    .navbar{
+    /* .navbar{
         width: 90%;
         flex-direction: column;
         gap: 0.5rem;
         height: auto;
         margin: 20px auto;
         padding: 0.8em;
-    }
+    } */
 
     .navbar-brand{
         font-size: 26px;
