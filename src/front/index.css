@@ -1297,3 +1297,80 @@ footer.contain{
     font-size: 1.1rem;
 }
 
+
+
+/*mobile*/
+
+@media (max-width: 768px){
+    .navbar{
+        width: 90%;
+        flex-direction: column;
+        gap: 0.5rem;
+        height: auto;
+        margin: 20px auto;
+        padding: 0.8em;
+    }
+
+    .navbar-brand{
+        font-size: 26px;
+    }
+
+    .login-button,
+    .logout-button{
+        font-size: 14px;
+        padding: 0.6em 1.6em;
+    }
+    .el{
+        width: 90%;
+        padding: 1.5em;
+        left: 0;
+    }
+
+    .title {
+    font-size: 50px;
+  }
+
+  .movieTag h1 {
+    font-size: 2rem;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .form-control {
+    width: 90%;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    width: 95%;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar-brand {
+    font-size: 22px;
+  }
+
+  .login-button {
+    width: 100%;
+    padding: 0.6em;
+  }
+
+  .title {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .bottomText {
+    font-size: 16px;
+  }
+
+  .card {
+    width: 100%;
+    margin: 1em 0;
+  }
+}

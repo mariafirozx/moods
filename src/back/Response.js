@@ -11,9 +11,14 @@ export default async function Response(setPrediction, setinputMood, inputMood) {
             });
 
             if (!response.ok) {
-                
+                alert("Error fetching mood...")
 
             }
+            if(!response){
+                alert("Error fetching mood...")
+            }
+
+            
             const data = await response.json();
             
             setPrediction(data.prediction);
