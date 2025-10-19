@@ -12,35 +12,31 @@ export default function Navbar(props) {
     return(
         <>
 
-            <nav className="navbar sticky-top mb-2">
+            <nav className="navbar navbar-expand-md custom-navbar sticky-top mb-2">
                 <div className="container-md mb-2">
-                    <Link to='/' className="navbar-brand ">{props.title}</Link>
-                    {/* {user? (
-                        <div>
-                            <ul>
-                                <li><a href="#">Favorite</a></li>
-                            </ul>
-
-                        </div>
-
-                    ): (
-                        <div></div>
-
-                    )} */}
+                    <Link to='/' className="navbar-brand fw-bold text-dark">{props.title}</Link>
+                   
+                {/* <div className="collapse navbar-collapse justify-content-end" id="navbarNav"> */}
                     <AuthButtons>
                         <div>
                             <Outlet/>
                         </div>
                     </AuthButtons>
-                    {/* <Auth onLogin={props.onLogin}></Auth> */}
+                {/* </div> */}
+                    {/* <button
+                    className="navbar-toggler"
+                    type="buton"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="toggle nav"
 
-                
-                    {/* <button className="login-button" onClick={props.onLogin}>LOGIN</button>
-                    <button className="logout-button" onClick={props.onLogout}>LOGOUT</button> */}
-
-
-
-                
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                        
+                    </button> */}
+                    
                 </div>
 
             </nav>
@@ -54,11 +50,6 @@ export default function Navbar(props) {
                         ):(
                             <div></div>
                         )}
-
-
-
-        
-     
         </>
     )
 
