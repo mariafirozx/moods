@@ -19,51 +19,51 @@ export default function AuthButtons(){
 
    
 
-//     return (
-//     <div className="auth-buttons">
-//       {user ? (
-//         <div className="d-flex align-items-center">
-//           <span className="text-light me-3">Hi, {user.email}</span>
-//           <button className="btn btn-outline-light" onClick={handleLogout}>
-//             Logout
-//           </button>
-//         </div>
-//       ) : (
-//         <button className="btn btn-outline-light" onClick={handleLogin}>
-//           Login
-//         </button>
-//       )}
-//     </div>
-//   );
+
+
     return(
         <>
-        <div>
            {user? (
-            <div className="d-flex nav-right">
-                <ul>
-                    <li className='nav-item'>
-                     <Link to="favorite/" className='nav-link'>Favorite</Link>
+            <>
+            <div className="collapse navbar-collapse" id="navbarToggler">
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li className='nav-item'>
+                                <Link to="favorite/" className='nav-link'>Favorite</Link>
 
-                    </li>
-                     {/* <li><a href="#Favorites">My Favorites</a></li> */}
-                 </ul>
-                 <div className="user-info">
+                                </li>
+
+                                <li className="nav-item">
+
+                                    {user? (
+    
+                                                    <button className="logout-button" onClick={handleLogout}>LOGOUT</button> 
+                                                
+                                            ):(
+                                                <div></div>
+                                    )}
+                                </li>
+                            </ul>
+
+                            </div>
+
+                 <div className="user-info d-flex align-items-center ms-3">
 
                     <span className="text-light displayName">Hi, {user.user_metadata.name.split(' ')[0]}!</span> 
                     <img className="userAvatar rounded-circle " src={user.user_metadata.picture} referrerPolicy="no-referrer"></img>  
                  </div>
 
 
+
                 {/* <button className="logout-button" onClick={handleLogout}>LOGOUT</button> */}
 
-
-            </div>
+            </>
+            
+        
         ): (
             <button className="login-button" onClick={handleLoginForm}>LOGIN</button>
 
         )}
 
-        </div>
 
         
         

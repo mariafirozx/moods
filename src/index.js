@@ -5,6 +5,8 @@ import Home from './front/Home.js';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 import './front/index.css';
 import FavLayout from './front/FavLayout.js';
 import Favorite from './back/Favorite.js';
