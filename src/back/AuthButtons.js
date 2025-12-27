@@ -27,7 +27,7 @@ export default function AuthButtons(){
             <>
             <div className="collapse navbar-collapse" id="navbarToggler">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li className='nav-item'>
+                                <li className='nav-item ms-auto'>
                                 <Link to="favorite/" className='nav-link'>Favorite</Link>
 
                                 </li>

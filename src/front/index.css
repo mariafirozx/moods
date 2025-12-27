@@ -42,15 +42,7 @@ body, #root{
     background-size: 100% 100%;
       background-repeat: no-repeat, no-repeat; */
 
-
-
     /*new try*/
-
-  
-
-
-
-
 
     /*old one: start here*/
 
@@ -238,7 +230,7 @@ background-image: url("https://www.transparenttextures.com/patterns/white-textur
               0px 10px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   background-color: var(--third--primary);
-  position: sticky;
+  position: relative;
   z-index: 2; 
   backdrop-filter: blur(15px);
 
@@ -428,11 +420,23 @@ position: relative;
     font-family: 'Inter', sans-serif;
     margin-right: 26em;
     margin-top: 4px;
+    /* margin-right: 0;
+    margin-left: 0;
+    position: relative; */
 }
 
 .userFav span{
     color: var(--third--primary) !important;
     font-weight: 550;
+}
+
+.nav-right .userFav,
+.navbar ul li.fav{
+  margin-left: auto;
+}
+
+.navbar-nav .ms-auto{
+  margin-left: auto !important;
 }
 
 .navbar ul{
@@ -450,6 +454,7 @@ position: relative;
 .navbar ul li {
   display: inline;
   text-decoration: none;
+
 }
  .navbar ul li a {
 font-size: 15px;
@@ -458,6 +463,7 @@ font-size: 15px;
   text-decoration: none;
   font-family: "Inter", sans-serif;
   font-weight: 550;
+
 }
 
 .navbar ul li a:hover{
@@ -468,6 +474,20 @@ font-size: 15px;
   font-weight: 800;
   text-shadow: 0 0 8px var(--secondary-color) !important;
   color: var(--secondary-color) !important;
+
+}
+
+.nav-item .nav-link{
+  position: relative;
+  left: 15em;
+  align-items: center;
+justify-content: center;
+display: flex;
+top: 7px;
+/* 
+  position: absolute;
+  margin-right: 2em;
+   */
 }
 /**/
 
@@ -1093,7 +1113,6 @@ margin-top: 5rem;
     color: var(--third--primary);
     top: 3em;
     
-
 }
 
 /*fav popup msg*/
@@ -1270,14 +1289,14 @@ footer.contain{
     font-size: 1.1rem;
 }
 
-
-
 /*mobile*/
 
 @media (max-width: 1000px){
+
+  
   .logout-button{
     position: relative;
-    left: 10em;
+    left: 4em;
     right: 4em;
     top: 4em;
     background-color: var(--secondary-color);
@@ -1288,8 +1307,8 @@ footer.contain{
 @media (max-width: 992px) {
   .navbar .navbar-collapse {
     background-color: var(--third--primary);
-    padding: 1rem;
-    border-radius: 0.5rem;
+    padding: 1.90rem;
+    border-radius: 0.6rem;
     z-index: 1;
   }
 
